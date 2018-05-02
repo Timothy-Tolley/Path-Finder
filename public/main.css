@@ -3,9 +3,11 @@
   border: 0;
 }
 
+/* change font here */ 
 body {
   width: 100%;
   height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .page {
@@ -14,4 +16,42 @@ body {
   display: flex;
   flex-direction: column;
   align-content: center;
+}
+
+/* main header coloring and font size and weight*/
+.header-item{
+  color: #e57f35;
+}
+
+.main-header{
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.secondary-header{
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+/* footer text coloring and size */
+.footer-item{
+  color: #e57f35;
+  font-size: 1.2rem;
+}
+
+/* box coloring */
+.featured-box{
+  color: white;
+  background-color: #e57f35;
+}
+
+.options-box{
+  color: black;
+  background-color: transparent;
+}
+
+/* social icon sizing */
+.social-icon{
+  width:30px;
+  padding: 10px;
 }
