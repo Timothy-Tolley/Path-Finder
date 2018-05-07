@@ -46,8 +46,15 @@ body {
 }
 
 .options-box{
-  color: black;
+  color: grey;
   background-color: transparent;
+}
+
+/* label size and coloring*/
+.label {
+  color: grey;
+  font-size: 0.7rem;
+  text-align: right;
 }
 
 /* social icon sizing */

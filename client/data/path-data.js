@@ -1,8 +1,36 @@
-import finalMessage from ''
+const finalMessage = ''
+
+// TEMPLATE
+// const template = [{
+//   label: '',
+//   options: [
+//     {
+//       title: '',
+//       description: '',
+//       responses: nextStep
+//     },
+//     {
+//       title: '',
+//       description: '',
+//       responses: nextStep
+//     }]
+// }]
+
+// Eigth Level
+
+// Seventh Level
+
+// Sixth Level
+
+// Fifth Level
+
+// Forth Level
+
+// Third Level
 
 // Second Level
-const posAdminResp = []
-const webAppResp = [
+export const posAdminResp = []
+export const webAppResp = [
   {
     label: 'work in field - gain 5 yrs experience',
     options: [
@@ -24,11 +52,16 @@ const webAppResp = [
     ]
   }
 ]
+export const wareSuperResp = []
+export const trainManagerResp = []
+export const credControlResp = []
+export const accRecievResp = []
+export const accPayableResp = []
 
 // First Level
-const accDegResp = []
-const busDegResp = []
-const itDegResp = [{
+export const accDegResp = []
+export const busDegResp = []
+export const itDegResp = [{
   label: '',
   options: [
     {
@@ -42,15 +75,51 @@ const itDegResp = [{
       responses: webAppResp
     }]
 }]
-const hrDegResp = []
-const warehousingResp = []
-const receptionResp = []
-const shopFloorResp = []
+export const hrDegResp = []
+export const warehousingResp = [{
+  label: '',
+  options: [
+    {
+      title: 'WAREHOUSE SUPERVISOR',
+      description: 'Creating and managing online stores and marketing',
+      responses: wareSuperResp
+    }
+  ]
+}]
+export const receptionResp = []
+export const shopFloorResp = [{
+  label: '',
+  options: [
+    {
+      title: 'TRAINEE MANAGER',
+      description: 'Creating and managing online stores and marketing',
+      responses: trainManagerResp
+    }]
+}]
+export const DataEntryResp = [{
+  label: '',
+  options: [
+    {
+      title: 'CREDIT CONTROL',
+      description: 'Creating and managing online stores and marketing',
+      responses: credControlResp
+    },
+    {
+      title: 'ACCOUNTS RECEIVABLE',
+      description: 'Creating and managing online stores and marketing',
+      responses: accRecievResp
+    },
+    {
+      title: 'ACCOUNTS PAYABLE',
+      description: 'Creating and managing online stores and marketing',
+      responses: accPayableResp
+    }]
+}]
 
 // baseLevel
-const baseLevel = [
+export const baseLevel = [
   {
-    label: 'higher education',
+    label: 'HIGHER EDUCATION',
     options: [
       {
         title: 'ACCOUNTING DEGREE',
@@ -59,7 +128,7 @@ const baseLevel = [
       },
       {
         title: 'BUSINESS DEGREE',
-        description: 'I like challenges and growing a project',
+        description: 'I like challenges and growing a project being efficient being efficient',
         responses: busDegResp
       },
       {
@@ -75,7 +144,7 @@ const baseLevel = [
     ]
   },
   {
-    label: 'Work in the Field',
+    label: 'WORK IN THE FIELD',
     options: [
       {
         title: 'WAREHOUSING',
@@ -84,16 +153,19 @@ const baseLevel = [
       },
       {
         title: 'RECEPTION',
-        description: 'I like helping people and being efficient',
+        description: 'I like helping people and being efficient being efficient being efficient',
         responses: receptionResp
       },
       {
         title: 'SHOP FLOOR',
         description: 'I like being in a retail environment and making sales',
         responses: shopFloorResp
+      },
+      {
+        title: 'DATA ENTRY',
+        description: 'I like working with numbers and being given tasks',
+        responses: DataEntryResp
       }
     ]
   }
 ]
-
-export default baseLevel
