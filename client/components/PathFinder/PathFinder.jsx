@@ -17,13 +17,13 @@ class Pathfinder extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick (object) {
+  handleClick (option) {
     this.setState({
       currentSelection: {
-        title: object.title,
-        description: object.description
+        title: option.title,
+        description: option.description
       },
-      options: object.responses
+      options: option.responses
     })
   }
 
@@ -40,33 +40,43 @@ class Pathfinder extends React.Component {
             </p>
           </div>
         </div>
-        <div className = 'options-body-cont'>
-          {this.state.options.map((section, idx) => {
-            return (
-              <div className = 'single-label-cont' key = {idx}>
-                <div className = 'labels-cont'>
-                  <p className = 'label'>
-                    {section.label}
-                  </p>
+        {this.state.options
+          ? <div className = 'options-body-cont'>
+            {this.state.options.map((section, idx) => {
+              return (
+                <div className = 'single-label-cont' key = {idx}>
+                  <div className = 'labels-cont'>
+                    <p className = 'label'>
+                      {section.label}
+                    </p>
+                  </div>
+                  <div className = 'options-cont'>
+                    {section.options.map((option, idx) => {
+                      return (
+                        <div className = 'single-option-cont options-box' key = {idx} value = {option} onClick = {(e) => this.handleClick(option)}>
+                          <p className = 'title'>
+                            {option.title}
+                          </p>
+                          <p className = 'description'>
+                            {option.description}
+                          </p>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
-                <div className = 'options-cont'>
-                  {section.options.map((option, idx) => {
-                    return (
-                      <div className = 'single-option-cont options-box' key = {idx} value = {option} onClick = {(e) => this.handleClick(option)}>
-                        <p className = 'title'>
-                          {option.title}
-                        </p>
-                        <p className = 'description'>
-                          {option.description}
-                        </p>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )
-          })}
-        </div>
+              )
+            })}
+          </div>
+          : <div className = 'end-message-container'>
+            <div className = 'end-message-box'>
+              <p className = 'end-main-header'> CONGRATULATIONS!</p>
+              <p className = 'end-main-header'> THIS IS AN INDUSTRY LEADING JOB.</p>
+              <p className = 'end-secondary-header'> MAKE YOUR DREAM HAPPEN, TALK TO US TODAY </p>
+              <img className = 'final-message-img' alt = 'logo image'/>
+            </div>
+          </div>
+        }
       </div>
     )
   }

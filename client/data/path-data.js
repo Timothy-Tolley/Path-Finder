@@ -1,5 +1,3 @@
-const finalMessage = ''
-
 // TEMPLATE
 // const template = [{
 //   label: '',
@@ -37,17 +35,17 @@ export const webAppResp = [
       {
         title: 'SENIOR DEVELOPER',
         description: 'I lead web app and online tool projects for the company to use',
-        responses: finalMessage
+        responses: false
       },
       {
         title: 'DIGITAL MARKETING LEAD',
         description: 'I create digital marketing campaigns and manage influencers',
-        responses: finalMessage
+        responses: false
       },
       {
         title: 'STRATEGY DESIGNER',
         description: 'I use analytics and data to design systems to sell more for the company',
-        responses: finalMessage
+        responses: false
       }
     ]
   }

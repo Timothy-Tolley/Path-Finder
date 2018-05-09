@@ -8,3 +8,4 @@ export const fbAddress = 'https://www.facebook.com/Retailworld'
 export const twitterAddress = 'https://twitter.com/retailworldnz'
 export const linkedInAddress = 'https://www.linkedin.com/company/retailworld-resourcing/'
 export const instagramAddress = 'https://www.instagram.com/retailworld_/'
+export const moveAnimationDuration = 300

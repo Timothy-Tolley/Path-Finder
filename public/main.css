@@ -45,7 +45,7 @@ body {
   background-color: #e57f35;
 }
 
-.options-box{
+.options-box {
   color: grey;
   background-color: transparent;
 }
@@ -58,7 +58,23 @@ body {
 }
 
 /* social icon sizing */
-.social-icon{
+.social-icon {
   width:30px;
   padding: 10px;
+}
+
+/* Final Message */
+.end-main-header {
+  color: #e57f35;
+  font-size: 1.3rem;
+}
+
+.end-secondary-header {
+  color: grey;
+  font-size: 1.2rem;
+}
+
+.final-message-img {
+  content:url(http://localhost:3000/images/rwr-Logo.png);
+  width: 60%;
 }

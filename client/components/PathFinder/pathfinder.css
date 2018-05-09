@@ -69,3 +69,37 @@
  font-size: 0.7rem;
  font-weight: 300;
 }
+
+/* END MESSAGE */
+
+.end-message-container {
+  width: 70%;
+  display:flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.end-message-box {
+  width: 50%; 
+  display:flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+/* DEFINE TRANSITION */
+
+.fade-enter {
+  opacity: 0.01;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
+}
