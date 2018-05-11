@@ -9,3 +9,5 @@ export const twitterAddress = 'https://twitter.com/retailworldnz'
 export const linkedInAddress = 'https://www.linkedin.com/company/retailworld-resourcing/'
 export const instagramAddress = 'https://www.instagram.com/retailworld_/'
 export const moveAnimationDuration = 300
+export const featuredBoxColor = '#e57f35'
+export const featuredBoxTextColor = 'white'
