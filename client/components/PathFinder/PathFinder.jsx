@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import './pathfinder.css'
 
@@ -51,18 +52,24 @@ class Pathfinder extends React.Component {
                     </p>
                   </div>
                   <div className = 'options-cont'>
-                    {section.options.map((option, idx) => {
-                      return (
-                        <div className = 'single-option-cont options-box' key = {idx} value = {option} onClick = {(e) => this.handleClick(option)}>
-                          <p className = 'title'>
-                            {option.title}
-                          </p>
-                          <p className = 'description'>
-                            {option.description}
-                          </p>
-                        </div>
-                      )
-                    })}
+                    <ReactCSSTransitionGroup
+                      transitionName="move"
+                      transitionEnterTimeout={500}
+                      transitionLeaveTimeout={300}
+                    >
+                      {section.options.map((option, idx) => {
+                        return (
+                          <div className = 'single-option-cont options-box' key = {idx} value = {option} onClick = {(e) => this.handleClick(option)}>
+                            <p className = 'title'>
+                              {option.title}
+                            </p>
+                            <p className = 'description'>
+                              {option.description}
+                            </p>
+                          </div>
+                        )
+                      })}
+                    </ReactCSSTransitionGroup >
                   </div>
                 </div>
               )
