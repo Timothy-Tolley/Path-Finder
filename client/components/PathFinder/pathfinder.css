@@ -89,17 +89,20 @@
 
 /* DEFINE TRANSITION */
 
-.fade-enter {
+.move-enter {
   opacity: 0.01;
 }
-.fade-enter-active {
+
+.move-enter.move-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
-.fade-exit {
+
+.move-leave {
   opacity: 1;
 }
-.fade-exit-active {
+
+.move-leave.move-leave-active {
   opacity: 0.01;
-  transition: opacity 500ms ease-in;
+  transition: opacity 300ms ease-in;
 }

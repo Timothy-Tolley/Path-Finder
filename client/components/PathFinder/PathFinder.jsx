@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import {CSSTransitionGroup} from 'react-transition-group'
 
 import './pathfinder.css'
 
@@ -41,6 +41,7 @@ class Pathfinder extends React.Component {
             </p>
           </div>
         </div>
+
         {this.state.options
           ? <div className = 'options-body-cont'>
             {this.state.options.map((section, idx) => {
@@ -52,24 +53,19 @@ class Pathfinder extends React.Component {
                     </p>
                   </div>
                   <div className = 'options-cont'>
-                    <ReactCSSTransitionGroup
-                      transitionName="move"
-                      transitionEnterTimeout={500}
-                      transitionLeaveTimeout={300}
-                    >
-                      {section.options.map((option, idx) => {
-                        return (
-                          <div className = 'single-option-cont options-box' key = {idx} value = {option} onClick = {(e) => this.handleClick(option)}>
-                            <p className = 'title'>
-                              {option.title}
-                            </p>
-                            <p className = 'description'>
-                              {option.description}
-                            </p>
-                          </div>
-                        )
-                      })}
-                    </ReactCSSTransitionGroup >
+
+                    {section.options.map((option, idx) => {
+                      return (
+                        <div className = 'single-option-cont options-box' key = {option.id} value = {option} onClick = {(e) => this.handleClick(option)}>
+                          <p className = 'title'>
+                            {option.title}
+                          </p>
+                          <p className = 'description'>
+                            {option.description}
+                          </p>
+                        </div>
+                      )
+                    })}
                   </div>
                 </div>
               )
@@ -84,9 +80,35 @@ class Pathfinder extends React.Component {
             </div>
           </div>
         }
+
       </div>
     )
   }
 }
 
 export default Pathfinder
+
+// getRelativeLeft (currentOffsetLeft, clickedOffsetLeft) {
+//   return currentOffsetLeft - clickedOffsetLeft
+// }
+// getRelativeTop (currentOffsetTop, clickedOffsetTop) {
+//   return currentOffsetTop - clickedOffsetTop
+// }
+
+// makeMove (elementId) {
+//   const bodyRect = document.body.getBoundingClientRect()
+//   const currentRect = document.getElementById('current-box').getBoundingClientRect()
+//   const currentOffsetTop = currentRect.top - bodyRect.top
+//   const currentOffsetLeft = currentRect.left - bodyRect.left
+//   const clickedElement = document.getElementById(`${elementId}`)
+//   const clickedElementRect = clickedElement.getBoundingClientRect()
+//   const clickedOffsetTop = clickedElementRect.top - bodyRect.top
+//   const clickedOffsetLeft = clickedElementRect.left - bodyRect.left
+//   clickedElement.style.positionTop = clickedOffsetTop + 'px'
+//   clickedElement.style.positionLeft = clickedOffsetLeft + 'px'
+//   clickedElement.style.position = 'relative'
+//   clickedElement.style.transform = `translate3d(${this.getRelativeLeft(currentOffsetLeft, clickedOffsetLeft)}px, ${this.getRelativeTop(currentOffsetTop, clickedOffsetTop)}px, 0)`
+//   clickedElement.style.backgroundColor = featuredBoxColor
+//   clickedElement.style.color = featuredBoxTextColor
+//   clickedElement.style.transition = 'all .7s ease-in-out'
+// }
