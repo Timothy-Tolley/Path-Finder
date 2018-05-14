@@ -96,7 +96,7 @@ export const itDegResp = [{
       responses: webAppResp
     }]
 }]
-export const hrDegResp = []
+// export const hrDegResp = []
 export const warehousingResp = [{
   label: '',
   options: [
@@ -169,7 +169,8 @@ export const baseLevel = [
         title: 'HUMAN RESOURCES DEGREE',
         description: 'I like working with people and managing projects',
         id: 5,
-        responses: hrDegResp
+        responses: false
+        // hrDegResp
       }
     ]
   },

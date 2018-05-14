@@ -49,7 +49,6 @@
 .current-box {
   width:210px;
   padding: 6px
-
 }
 
 /* OPTION BOX */
@@ -63,11 +62,13 @@
 .title {
   font-size: 1.2rem;
   font-weight: 500;
+  pointer-events: none;
 }
 
 .description {
  font-size: 0.7rem;
  font-weight: 300;
+ pointer-events: none;
 }
 
 /* END MESSAGE */
@@ -77,6 +78,13 @@
   display:flex;
   align-content: center;
   justify-content: center;
+  animation-name: fadein;
+  animation-duration: 2000ms;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .end-message-box {
@@ -87,22 +95,92 @@
   justify-content: center;
 }
 
-/* DEFINE TRANSITION */
+/* DEFINE TRANSITIONS */
 
-.move-enter {
-  opacity: 0.01;
+/* featured box transition */
+
+@keyframes move-fade-in {
+  0% {
+    opacity: 0.01;
+    transform: translate3d(100%,0%,0);
+  }
+  20% {
+    opacity: 1;
+    transform: translate3d(100%,0%,0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0%,0%,0);
+  }
 }
 
-.move-enter.move-enter-active {
+.move-fade-enter {
+  animation-name: move-fade-in;
+  animation-duration: 4000ms;
+}
+.move-fade-enter-active {
+  animation-name: move-fade-in;
+  animation-duration: 4000ms;
+}
+.move-fade-exit {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+}
+.move-fade-exit-active {
+  opacity: 0.01;
+  transition: all 3000ms ease-out;
 }
 
-.move-leave {
+/* List Animation */
+
+.list-fade-enter {
+  opacity: 0.01;
+  transform: translate3d(10%,0%,0);
+}
+.list-fade-enter-active {
+  opacity: 1;
+  transform: translate3d(0%,0%,0);
+  transition: all 1700ms ease-out 2000ms;
+}
+.list-fade-exit {
   opacity: 1;
 }
-
-.move-leave.move-leave-active {
+.list-fade-exit-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  transition: all 200ms ease-in;
 }
+
+
+.itemMove-enter {
+  opacity: 0.01;
+  transform: translate3d(10%,0%,0);
+}
+.itemMove-enter-active {
+  opacity: 1;
+  transform: translate3d(0%,0%,0);
+  transition: all 1700ms ease-out 2000ms;
+}
+.itemMove-exit {
+  opacity: 1;
+}
+.itemMove-exit-active {
+  opacity: 0.01;
+  transition: all 200ms ease-in;
+}
+/* fade in css list */
+/* 
+@keyframes fadeInMove {
+  0% { 
+    opacity: 0;
+    transform: translate3d(10%,0%,0);
+   }
+  100%  { 
+    opacity: 1;
+    transform: translate3d(0%,0%,0);
+   }
+}
+
+.fade-in-move{
+  animation-name: fadeInMove;
+  animation-duration: 1700ms;
+  animation-delay: 2000ms;
+} */
