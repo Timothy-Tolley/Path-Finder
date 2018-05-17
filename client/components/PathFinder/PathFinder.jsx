@@ -60,13 +60,23 @@ class Pathfinder extends React.Component {
     const clickedOffsetTop = clickedElementRect.top - bodyRect.top
     const clickedOffsetLeft = clickedElementRect.left - bodyRect.left
     const newTop = (currentMid + currentOffsetTop) - clickedMid
-    clickedElement.style.positionTop = clickedOffsetTop + 'px'
-    clickedElement.style.positionLeft = clickedOffsetLeft + 'px'
-    clickedElement.style.position = 'relative'
-    clickedElement.style.transform = `translate3d(${this.getRelativeLeft(currentOffsetLeft, clickedOffsetLeft)}px, ${this.getRelativeTop(newTop, clickedOffsetTop)}px, 0)`
-    clickedElement.style.backgroundColor = featuredBoxBackgroundColor
-    clickedElement.style.color = featuredBoxTextColor
-    clickedElement.style.transition = 'all 0.7s ease-in-out'
+    if (window.innerWidth > 600) {
+      clickedElement.style.positionTop = clickedOffsetTop + 'px'
+      clickedElement.style.positionLeft = clickedOffsetLeft + 'px'
+      clickedElement.style.position = 'relative'
+      clickedElement.style.transform = `translate3d(${this.getRelativeLeft(currentOffsetLeft, clickedOffsetLeft)}px, ${this.getRelativeTop(newTop, clickedOffsetTop)}px, 0)`
+      clickedElement.style.backgroundColor = featuredBoxBackgroundColor
+      clickedElement.style.color = featuredBoxTextColor
+      clickedElement.style.transition = 'all 0.7s ease-in-out'
+    } else {
+      clickedElement.style.positionTop = clickedOffsetTop + 'px'
+      clickedElement.style.positionLeft = clickedOffsetLeft + 'px'
+      clickedElement.style.position = 'relative'
+      clickedElement.style.transform = `translate3d(${this.getRelativeLeft(currentOffsetLeft, clickedOffsetLeft)}px, ${this.getRelativeTop(currentOffsetTop, clickedOffsetTop)}px, 0)`
+      clickedElement.style.backgroundColor = featuredBoxBackgroundColor
+      clickedElement.style.color = featuredBoxTextColor
+      clickedElement.style.transition = 'all 0.7s ease-in-out'
+    }
   }
 
   makeFadeOut (element) {

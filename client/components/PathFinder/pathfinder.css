@@ -150,8 +150,102 @@
   transition: all 200ms ease-in;
 }
 
+/* MEDIA QUERY - IPAD PRO/ LARGE SCREEN*/
 
-@media (max-width: 400px) {
+@media (min-height: 700px) {
+  .current-cont {
+    width: 50%;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .options-body-cont {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+  }
+  
+  .single-label-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    padding-bottom: 20px;
+  }
+  
+  .labels-cont {
+    width: 100%;
+    padding: 12px;
+  }
+  
+  .options-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .label{
+    text-align: start;
+  }
+}
+
+/* MEDIA QUERY - MID/IPAD */
+
+@media (max-width: 950px) {
+  .current-cont {
+    width: 50%;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .end-message-container {
+    width: 50%;
+  }
+  .end-message-box {
+    width: 100%;
+  }
+  
+  .options-body-cont {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+  }
+  
+  .single-label-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    padding-bottom: 20px;
+  }
+  
+  .labels-cont {
+    width: 100%;
+    padding: 12px;
+  }
+  
+  .options-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .label{
+    text-align: start;
+  }
+}
+
+/* MEDIA QUERY - PHONE */
+
+@media (max-width: 600px) {
   .page {
     width: 100%;
     height: auto;
@@ -163,11 +257,47 @@
   }
   .current-cont {
     width: 100%;
+    padding-bottom: 20px
   }
   .options-body-cont {
     width: 100%;
   }
-  .single-label-cont{
+  .single-label-cont {
     flex-direction: column;
+    width: 100%;
+    align-content: center;
+  }
+  .labels-cont {
+    width: 100%;
+    padding: 0px;
+  }
+  .options-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px
+  }
+  .label {
+    text-align: center;
+  }
+  .title {
+    text-align: center;
+  }
+  .description{
+    text-align: center;
+  }
+  .end-message-box{
+    text-align: center;
+    width: 100%;
+  }
+  .end-message-container{
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .final-message-img{
+    align-self: center
   }
 } 

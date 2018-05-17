@@ -80,6 +80,6 @@ body {
 }
 
 .final-message-img {
-  content:url(http://localhost:3000/images/rwr-Logo.png);
+  content:url('/images/rwr-Logo.png');
   width: 60%;
 }
