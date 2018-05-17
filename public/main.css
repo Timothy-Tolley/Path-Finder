@@ -3,6 +3,11 @@
   border: 0;
 }
 
+#app {
+  width: 100%;
+  height: 100%;
+}
+
 /* change font here */ 
 body {
   width: 100%;

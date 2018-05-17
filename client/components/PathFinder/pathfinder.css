@@ -8,7 +8,6 @@
   flex-direction: row
 }
 
-
 /* CONTAINERS */
 .current-cont {
   width: 30%;
@@ -33,12 +32,12 @@
 }
 
 .labels-cont {
-  width:30%;
+  width: 40%;
   padding: 12px;
 }
 
 .options-cont {
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
 }
@@ -46,15 +45,11 @@
 
 /* CURRENT SELECTION BOX */
 
-.current-box {
-  width:210px;
-  padding: 6px
-}
-
-/* OPTION BOX */
-.single-option-cont{
-  width: 210px;
+.box {
+  max-width:250px;
+  min-width:250px;
   padding: 6px;
+  text-align: left;
 }
 
 /* TITLE AND DESCRIPTION */
@@ -73,18 +68,24 @@
 
 /* END MESSAGE */
 
+@keyframes fadein {
+  0% { opacity: 0; }
+  40% {
+    opacity: 0;
+    transform: translateX(20%)
+  }
+  100%  { opacity: 1; 
+    transform: translateX(0%)
+  }
+}
+
 .end-message-container {
   width: 70%;
   display:flex;
   align-content: center;
   justify-content: center;
   animation-name: fadein;
-  animation-duration: 2000ms;
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  animation-duration: 1000ms;
 }
 
 .end-message-box {
@@ -97,7 +98,7 @@
 
 /* DEFINE TRANSITIONS */
 
-/* featured box transition */
+/* FEATURED BOX ENTRANCE */
 
 @keyframes move-fade-in {
   0% {
@@ -116,11 +117,11 @@
 
 .move-fade-enter {
   animation-name: move-fade-in;
-  animation-duration: 4000ms;
+  animation-duration: 3000ms;
 }
 .move-fade-enter-active {
   animation-name: move-fade-in;
-  animation-duration: 4000ms;
+  animation-duration: 3000ms;
 }
 .move-fade-exit {
   opacity: 1;
@@ -130,7 +131,7 @@
   transition: all 3000ms ease-out;
 }
 
-/* List Animation */
+/* LIST ANIMATION */
 
 .list-fade-enter {
   opacity: 0.01;
@@ -150,37 +151,23 @@
 }
 
 
-.itemMove-enter {
-  opacity: 0.01;
-  transform: translate3d(10%,0%,0);
-}
-.itemMove-enter-active {
-  opacity: 1;
-  transform: translate3d(0%,0%,0);
-  transition: all 1700ms ease-out 2000ms;
-}
-.itemMove-exit {
-  opacity: 1;
-}
-.itemMove-exit-active {
-  opacity: 0.01;
-  transition: all 200ms ease-in;
-}
-/* fade in css list */
-/* 
-@keyframes fadeInMove {
-  0% { 
-    opacity: 0;
-    transform: translate3d(10%,0%,0);
-   }
-  100%  { 
-    opacity: 1;
-    transform: translate3d(0%,0%,0);
-   }
-}
-
-.fade-in-move{
-  animation-name: fadeInMove;
-  animation-duration: 1700ms;
-  animation-delay: 2000ms;
-} */
+@media (max-width: 400px) {
+  .page {
+    width: 100%;
+    height: auto;
+  }
+  .pathfinder-app {
+    flex-direction: column;
+    height: auto;
+    position: relative;
+  }
+  .current-cont {
+    width: 100%;
+  }
+  .options-body-cont {
+    width: 100%;
+  }
+  .single-label-cont{
+    flex-direction: column;
+  }
+} 

@@ -1,6 +1,6 @@
 import uuid from 'uuid'
 import React from 'react'
-import {CSSTransition, TransitionGroup} from 'react-transition-group'
+import {CSSTransition} from 'react-transition-group'
 
 import './pathfinder.css'
 
@@ -17,10 +17,12 @@ class Pathfinder extends React.Component {
       },
       options: baseLevel,
       initialRender: false,
-      listActive: false,
-      itemActive: false
+      listActive: false
     }
     this.makeMove = this.makeMove.bind(this)
+    this.makeFadeIn = this.makeFadeIn.bind(this)
+    this.setOpacity = this.setOpacity.bind(this)
+    this.makeFadeOut = this.makeFadeOut.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.getRelativeTop = this.getRelativeTop.bind(this)
     this.getRelativeLeft = this.getRelativeLeft.bind(this)
@@ -34,18 +36,8 @@ class Pathfinder extends React.Component {
       },
       options: baseLevel,
       initialRender: true,
-      listActive: true,
-      itemActive: true
+      listActive: true
     })
-    // setTimeout(() => this.setState({
-    //   currentSelection: {
-    //     title: 'RETAIL ASSISTANT',
-    //     description: 'YOUR FRIENDLY STORE ASSISTANT'
-    //   },
-    //   options: baseLevel,
-    //   initialRender: true,
-    //   listActive: true
-    // }), 2100)
   }
 
   getRelativeLeft (currentOffsetLeft, clickedOffsetLeft) {
@@ -74,12 +66,53 @@ class Pathfinder extends React.Component {
     clickedElement.style.transform = `translate3d(${this.getRelativeLeft(currentOffsetLeft, clickedOffsetLeft)}px, ${this.getRelativeTop(newTop, clickedOffsetTop)}px, 0)`
     clickedElement.style.backgroundColor = featuredBoxBackgroundColor
     clickedElement.style.color = featuredBoxTextColor
-    clickedElement.style.transition = 'all .7s ease-in-out, .5s'
+    clickedElement.style.transition = 'all 0.7s ease-in-out'
+  }
+
+  makeFadeOut (element) {
+    const labels = document.querySelectorAll('.label')
+    const currentBox = document.getElementById('current-box')
+    const listItemConts = document.querySelectorAll('.single-option-cont')
+    currentBox.style.opacity = 0
+    currentBox.style.transition = 'opacity 0.7s ease-in-out'
+    labels.forEach(label => {
+      label.style.opacity = 0
+      label.style.transition = 'opacity 0.7s ease-in-out'
+    })
+    listItemConts.forEach(cont => {
+      if (cont.id !== element) {
+        cont.style.opacity = 0
+        cont.style.transition = 'opacity 0.7s ease-in-out'
+      }
+    })
+  }
+
+  setOpacity () {
+    const currentBox = document.getElementById('current-box')
+    const listCont = document.getElementById('options-body-cont')
+    currentBox.style.opacity = 1
+    currentBox.style.transition = 'none'
+    if (listCont) {
+      listCont.style.opacity = 0
+    }
+  }
+
+  makeFadeIn () {
+    const listCont = document.getElementById('options-body-cont')
+    if (listCont) {
+      listCont.style.opacity = 1
+      listCont.style.transition = 'opacity 1s ease-in-out'
+    }
   }
 
   handleClick (e, option) {
+    const listCont = document.getElementById('options-body-cont')
+    listCont.removeAttribute('style')
     this.makeMove(e)
+    let targetId = e.target.id
+    this.makeFadeOut(targetId)
     setTimeout(() => {
+      this.setOpacity()
       this.setState({
         currentSelection: {
           title: option.title,
@@ -87,10 +120,10 @@ class Pathfinder extends React.Component {
         },
         options: option.responses,
         initialRender: true,
-        listActive: true,
-        itemActive: false
+        listActive: true
       })
-    }, 2200)
+      setTimeout(() => this.makeFadeIn(), 300)
+    }, 1000)
   }
 
   render () {
@@ -105,7 +138,7 @@ class Pathfinder extends React.Component {
           unmountOnExit
         >
           <div className = 'current-cont'>
-            <div className = 'current-box featured-box' id = 'current-box'>
+            <div className = 'box featured-box' id = 'current-box'>
               <p className = 'title'>
                 {this.state.currentSelection.title}
               </p>
@@ -125,43 +158,32 @@ class Pathfinder extends React.Component {
             mountOnEnter
             unmountOnExit
           >
-            <div className = 'options-body-cont fade-in-move'>
+            <div className = 'options-body-cont fade-in-move' id = 'options-body-cont'>
               {this.state.listActive && this.state.options.map((section) => {
                 return (
-                  <div className = 'single-label-cont' key = {uuid()} >
+                  <div className = 'single-label-cont' key = {uuid()}>
                     <div className = 'labels-cont'>
                       <p className = 'label'>
                         {section.label}
                       </p>
                     </div>
                     <div className = 'options-cont'>
-                      <TransitionGroup className = 'labels'>
-                        {section.options.map((option) => {
-                          return (
-                            <CSSTransition
-                              classNames = 'itemMove'
-                              in = {this.state.itemActive}
-                              timeout = {2000}
-                              component = {null}
-                              key={option.id}
-                              mountOnEnter
-                              unmountOnExit
-                            >
-                              <div className = 'single-option-cont options-box' id = {option.id} value = {option} onClick = {(e) => this.handleClick(e, option)}>
-                                <p className = 'title'>
-                                  {option.title}
-                                </p>
-                                <p className = 'description'>
-                                  {option.description}
-                                </p>
-                              </div>
-                            </CSSTransition>
-                          )
-                        })}
-                      </TransitionGroup>
+                      {section.options.map((option) => {
+                        return (
+                          <div className = 'single-option-cont options-box box' id = {option.id} value = {option} onClick = {(e) => this.handleClick(e, option)} key={option.id}>
+                            <p className = 'title'>
+                              {option.title}
+                            </p>
+                            <p className = 'description'>
+                              {option.description}
+                            </p>
+                          </div>
+
+                        )
+                      })}
+
                     </div>
                   </div>
-
                 )
               })}
             </div>

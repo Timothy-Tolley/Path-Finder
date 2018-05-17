@@ -14,3 +14,16 @@
   flex-direction: column;
   word-wrap: normal;
 }
+
+@media (max-width: 400px) {
+  .header-bar{
+    height: auto;
+    width: 100%; 
+    position: relative;
+  }
+  .header-text{
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%; 
+  }
+} 
