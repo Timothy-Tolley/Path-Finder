@@ -14,3 +14,21 @@
   flex-direction: column;
   word-wrap: normal;
 }
+
+@media (max-width: 600px) {
+  .header-bar{
+    height: auto;
+    width: 100%; 
+    position: relative;
+    padding: 0px;
+    margin-bottom: 20px;
+  }
+  .header-text{
+    flex-direction: column;
+    width: auto;
+    padding: 2px;
+  }
+  .header-item {
+    width: 100%; 
+  }
+} 

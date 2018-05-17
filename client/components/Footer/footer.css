@@ -31,3 +31,9 @@
   justify-content: flex-end;
   align-content: center;
 }
+
+@media (max-width: 650px) {
+  .footer-bar{
+    display: none;
+  }
+} 

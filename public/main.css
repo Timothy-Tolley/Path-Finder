@@ -3,6 +3,11 @@
   border: 0;
 }
 
+#app {
+  width: 100%;
+  height: 100%;
+}
+
 /* change font here */ 
 body {
   width: 100%;
@@ -75,6 +80,6 @@ body {
 }
 
 .final-message-img {
-  content:url(http://localhost:3000/images/rwr-Logo.png);
+  content:url('/images/rwr-Logo.png');
   width: 60%;
 }
