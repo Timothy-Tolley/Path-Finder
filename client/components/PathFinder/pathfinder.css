@@ -1,3 +1,5 @@
+/* ANIMATIONS FOR CSS TRANSTIONS AND END MESSAGE FOUND ON THIS PAGE */ 
+
 .pathfinder-app {
   width: 100%;
   height: 75%;
@@ -68,9 +70,11 @@
 
 /* END MESSAGE */
 
+/* END MESSAGE ANIMATION - 30% delay to allow for mounting */
+
 @keyframes fadein {
   0% { opacity: 0; }
-  40% {
+  30% {
     opacity: 0;
     transform: translateX(20%)
   }
@@ -79,13 +83,14 @@
   }
 }
 
+/* END MESSAGE ANIMATION SPEED HERE */
 .end-message-container {
   width: 70%;
   display:flex;
   align-content: center;
   justify-content: center;
   animation-name: fadein;
-  animation-duration: 1000ms;
+  animation-duration: 1700ms;
 }
 
 .end-message-box {
@@ -115,6 +120,7 @@
   }
 }
 
+/* ANIMATION SPEED FOR ORANGE BOX ENTRANCE MAKE ALL THE SAME */
 .move-fade-enter {
   animation-name: move-fade-in;
   animation-duration: 3000ms;
@@ -123,6 +129,7 @@
   animation-name: move-fade-in;
   animation-duration: 3000ms;
 }
+/* CAN IGNORE */
 .move-fade-exit {
   opacity: 1;
 }
@@ -132,6 +139,7 @@
 }
 
 /* LIST ANIMATION */
+/* ANIMATION SPEED FOR LIST CONTAINER ENTRANCE */
 
 .list-fade-enter {
   opacity: 0.01;
@@ -140,8 +148,11 @@
 .list-fade-enter-active {
   opacity: 1;
   transform: translate3d(0%,0%,0);
+  /* FIRST ms IS DURATION, SECOND DELAY*/ 
   transition: all 1700ms ease-out 2000ms;
 }
+
+/* CAN IGNORE */
 .list-fade-exit {
   opacity: 1;
 }

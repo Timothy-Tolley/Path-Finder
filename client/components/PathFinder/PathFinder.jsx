@@ -67,7 +67,9 @@ class Pathfinder extends React.Component {
       clickedElement.style.transform = `translate3d(${this.getRelativeLeft(currentOffsetLeft, clickedOffsetLeft)}px, ${this.getRelativeTop(newTop, clickedOffsetTop)}px, 0)`
       clickedElement.style.backgroundColor = featuredBoxBackgroundColor
       clickedElement.style.color = featuredBoxTextColor
-      clickedElement.style.transition = 'all 0.7s ease-in-out'
+      // MOVEMENT ANIMATION SPEED A
+      // IF YOU CHANGE THIS BY 1 SEC
+      clickedElement.style.transition = 'all 1.5s ease-in-out'
     } else {
       clickedElement.style.positionTop = clickedOffsetTop + 'px'
       clickedElement.style.positionLeft = clickedOffsetLeft + 'px'
@@ -75,7 +77,9 @@ class Pathfinder extends React.Component {
       clickedElement.style.transform = `translate3d(${this.getRelativeLeft(currentOffsetLeft, clickedOffsetLeft)}px, ${this.getRelativeTop(currentOffsetTop, clickedOffsetTop)}px, 0)`
       clickedElement.style.backgroundColor = featuredBoxBackgroundColor
       clickedElement.style.color = featuredBoxTextColor
-      clickedElement.style.transition = 'all 0.7s ease-in-out'
+      // MOVEMENT ANIMATION SPEED B
+      // CHANGE THIS THE SAME AS A
+      clickedElement.style.transition = 'all 1.5s ease-in-out'
     }
   }
 
@@ -84,15 +88,21 @@ class Pathfinder extends React.Component {
     const currentBox = document.getElementById('current-box')
     const listItemConts = document.querySelectorAll('.single-option-cont')
     currentBox.style.opacity = 0
-    currentBox.style.transition = 'opacity 0.7s ease-in-out'
+    // FADE OUT SPEED C
+    // CHANGE THIS BY APPROX HALF OF A
+    currentBox.style.transition = 'opacity 1.1s ease-in-out'
     labels.forEach(label => {
       label.style.opacity = 0
-      label.style.transition = 'opacity 0.7s ease-in-out'
+      // FADE OUT SPEED D
+      // MAKE SAME A C
+      label.style.transition = 'opacity 1.1s ease-in-out'
     })
     listItemConts.forEach(cont => {
       if (cont.id !== element) {
         cont.style.opacity = 0
-        cont.style.transition = 'opacity 0.7s ease-in-out'
+        // FADE OUT SPEED E
+        // MAKE SAME A C
+        cont.style.transition = 'opacity 1.1s ease-in-out'
       }
     })
   }
@@ -111,7 +121,9 @@ class Pathfinder extends React.Component {
     const listCont = document.getElementById('options-body-cont')
     if (listCont) {
       listCont.style.opacity = 1
-      listCont.style.transition = 'opacity 1s ease-in-out'
+      // FADE OUT SPEED F
+      // MAKE SAME A C
+      listCont.style.transition = 'opacity 1.1s ease-in-out'
     }
   }
 
@@ -132,10 +144,13 @@ class Pathfinder extends React.Component {
         initialRender: true,
         listActive: true
       })
-      setTimeout(() => this.makeFadeIn(), 300)
-    }, 1000)
+      // TIMEOUT FOR FADE IN
+      // PLAY AROUND WITH THIS BUT CHANGE NEXT LINE BY APPROX SAME AMOUNT
+      setTimeout(() => this.makeFadeIn(), 600)
+    }, 1800)
   }
 
+  // ALL FURTHER ANIMATIONS IN CSS
   render () {
     return (
       <div className = 'pathfinder-app' id = 'pathfinder-app'>
