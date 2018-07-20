@@ -44,22 +44,12 @@ body {
   font-size: 1.2rem;
 }
 
-/* box coloring */
-.featured-box{
-  color: white;
-  background-color: #e57f35;
-}
-
-.options-box {
-  color: grey;
-  background-color: transparent;
-}
 
 /* label size and coloring*/
 .label {
   color: grey;
   font-size: 0.7rem;
-  text-align: right;
+  text-align: left;
 }
 
 /* social icon sizing */

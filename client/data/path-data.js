@@ -6,13 +6,15 @@
 //       title: '',
 //       description: '',
 //       id: ,
-//       responses: nextStep
+// selected: 'unassigned',
+// responses: nextStep
 //     },
 //     {
 //       title: '',
 //       description: '',
 //       id: ,
-//       responses: nextStep
+// selected: 'unassigned',
+// responses: nextStep
 //     }]
 // }]
 
@@ -43,6 +45,7 @@ export const catBrandManResp2 = [{
       title: 'MERCHANDISE MANAGER',
       description: 'Manage the image and product from the entire brand',
       id: 68,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -64,6 +67,7 @@ export const plannerResp2 = [{
       title: 'CATEGORY/ BRAND MANAGER',
       description: 'Manage the image and stock of the brand/category',
       id: 67,
+      selected: 'unassigned',
       responses: catBrandManResp2
     }]
 }]
@@ -74,6 +78,7 @@ export const buyerResp2 = [{
       title: 'CATEGORY/ BRAND MANAGER',
       description: 'Manage the image and stock of the brand/category',
       id: 66,
+      selected: 'unassigned',
       responses: catBrandManResp2
     }]
 }]
@@ -84,6 +89,7 @@ export const regionalManResp = [{
       title: 'NATIONAL RETAIL OPS',
       description: 'Manage all the stores in the Region',
       id: 65,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -94,6 +100,7 @@ export const multiSiteManResp = [{
       title: 'NATIONAL RETAIL OPS',
       description: 'Manage all the stores in the Region',
       id: 64,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -112,6 +119,7 @@ export const ceo = [{
       title: 'CEO/GENERAL MANAGER',
       description: 'CEO or GM of an entire Brand',
       id: 63,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -125,12 +133,14 @@ export const buyAssistResp2 = [{
       title: 'PLANNER',
       description: 'Plan the seasons trends for the buyer',
       id: 62,
+      selected: 'unassigned',
       responses: plannerResp2
     },
     {
       title: 'BUYER',
       description: 'Source the product for the Brand',
       id: 61,
+      selected: 'unassigned',
       responses: buyerResp2
     }]
 }]
@@ -141,6 +151,7 @@ export const instoreVmResp = [{
       title: 'VISUAL MERCHANDISING MANAGER',
       description: 'Manage Visual Merchandising for the entire brand',
       id: 60,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -151,12 +162,14 @@ export const storeManResp = [{
       title: 'REGIONAL MANAGER',
       description: 'Manage all the stores in a Region',
       id: 59,
+      selected: 'unassigned',
       responses: regionalManResp
     },
     {
       title: 'MULTI-SITE MANAGER',
       description: 'Manager multiple shops in a region',
       id: 58,
+      selected: 'unassigned',
       responses: multiSiteManResp
     }]
 }]
@@ -172,6 +185,7 @@ export const accManResp = [{
       title: 'CFO',
       description: 'Financial Controller for the brand',
       id: 57,
+      selected: 'unassigned',
       responses: ceo
     }]
 }]
@@ -183,6 +197,7 @@ export const catBrandManResp = [{
       title: 'MERCHANDISE MANAGER',
       description: 'Manage the image and product from the entire brand',
       id: 56,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -194,6 +209,7 @@ export const proManResp = [{
       title: 'IT/ DESIGN MANAGER',
       description: 'Manage the Technology used across the brand',
       id: 55,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -205,6 +221,7 @@ export const hrManResp = [{
       title: 'GM HUMAN RESOURCES',
       description: 'General Manager of Human Resources',
       id: 54,
+      selected: 'unassigned',
       responses: ceo
     }]
 }]
@@ -217,6 +234,7 @@ export const paResp = [{
       title: 'OFFICE MANAGER',
       description: 'Manage an Entire Office',
       id: 53,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -228,18 +246,21 @@ export const assistManResp = [{
       title: "BUYER'S ASSISTANT",
       description: 'Assist buyer and learn from them',
       id: 52,
+      selected: 'unassigned',
       responses: buyAssistResp2
     },
     {
       title: 'INSTORE VM',
       description: 'Instore Visual Merchandiser',
       id: 51,
+      selected: 'unassigned',
       responses: instoreVmResp
     },
     {
       title: 'STORE MANAGER',
       description: 'Manage an entire store',
       id: 50,
+      selected: 'unassigned',
       responses: storeManResp
     }]
 }]
@@ -254,6 +275,7 @@ export const assistAccResp = [{
       title: 'ACCOUNTS MANAGER',
       description: 'Manage the business accounts',
       id: 49,
+      selected: 'unassigned',
       responses: accManResp
     }]
 }]
@@ -265,6 +287,7 @@ export const plannerResp = [{
       title: 'CATEGORY/ BRAND MANAGER',
       description: 'Manage the image and stock of the brand/category',
       id: 48,
+      selected: 'unassigned',
       responses: catBrandManResp
     }]
 }]
@@ -275,6 +298,7 @@ export const buyerResp = [{
       title: 'CATEGORY/ BRAND MANAGER',
       description: 'Manage the image and stock of the brand/category',
       id: 47,
+      selected: 'unassigned',
       responses: catBrandManResp
     }]
 }]
@@ -285,6 +309,7 @@ export const commResp = [{
       title: 'Marketing Manager',
       description: 'Manage the Marketing of the entire Brand',
       id: 46,
+      selected: 'unassigned',
       responses: ceo
     }]
 }]
@@ -296,6 +321,7 @@ export const techSuppResp = [{
       title: 'Project Management',
       description: 'Run the operations of the brand',
       id: 45,
+      selected: 'unassigned',
       responses: proManResp
     }]
 }]
@@ -307,6 +333,7 @@ export const trainDevResp = [{
       title: 'HR MANAGER',
       description: 'Manage HR across the company',
       id: 44,
+      selected: 'unassigned',
       responses: hrManResp
     }]
 }]
@@ -318,6 +345,7 @@ export const logisticResp = [{
       title: 'WAREHOUSE MANAGER',
       description: 'Manage stock for the entire brand',
       id: 43,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -329,6 +357,7 @@ export const custServiceResp = [{
       title: 'PERSONAL ASSISTANT',
       description: 'Manage the day to day life of a high level Employee',
       id: 42,
+      selected: 'unassigned',
       responses: paResp
     }]
 }]
@@ -340,6 +369,7 @@ export const traineeManResp = [{
       title: 'ASSISTANT MANAGER',
       description: 'Assist the store manager in the running of the business',
       id: 41,
+      selected: 'unassigned',
       responses: assistManResp
     }]
 }]
@@ -354,6 +384,7 @@ export const credControlResp = [{
       title: 'ASSISTANT ACCOUNTANT',
       description: 'Help a team manage the Accounts',
       id: 40,
+      selected: 'unassigned',
       responses: assistAccResp
     }]
 }]
@@ -364,6 +395,7 @@ export const accRecievResp = [{
       title: 'ASSISTANT ACCOUNTANT',
       description: 'Help a team manage the Accounts',
       id: 39,
+      selected: 'unassigned',
       responses: assistAccResp
     }]
 }]
@@ -374,6 +406,7 @@ export const accPayableResp = [{
       title: 'ASSISTANT ACCOUNTANT',
       description: 'Help a team manage the Accounts',
       id: 38,
+      selected: 'unassigned',
       responses: assistAccResp
     }]
 }]
@@ -385,12 +418,14 @@ export const buyAssistResp = [{
       title: 'PLANNER',
       description: 'Plan the seasons trends for the buyer',
       id: 37,
+      selected: 'unassigned',
       responses: plannerResp
     },
     {
       title: 'BUYER',
       description: 'Source the product for the Brand',
       id: 36,
+      selected: 'unassigned',
       responses: buyerResp
     }]
 }]
@@ -401,6 +436,7 @@ export const promoResp = [{
       title: 'Marketing Manager',
       description: 'Manage the Marketing of the entire Brand',
       id: 35,
+      selected: 'unassigned',
       responses: ceo
     }]
 }]
@@ -411,6 +447,7 @@ export const advertResp = [{
       title: 'COMMUNICATIONS',
       description: 'Communicate with brand partners',
       id: 34,
+      selected: 'unassigned',
       responses: commResp
     }]
 }]
@@ -421,6 +458,7 @@ export const marketAssistResp = [{
       title: 'Marketing Manager',
       description: 'Manage the Marketing of the entire Brand',
       id: 33,
+      selected: 'unassigned',
       responses: ceo
     }]
 }]
@@ -432,6 +470,7 @@ export const posAdminResp = [{
       title: 'TECHNICAL SUPPORT',
       description: 'Manage the Tech used in retail stores',
       id: 32,
+      selected: 'unassigned',
       responses: techSuppResp
     }]
 }]
@@ -442,18 +481,21 @@ export const webAppResp = [{
       title: 'SENIOR DEVELOPER',
       description: 'I lead web app and online tool projects for the company to use',
       id: 31,
+      selected: 'unassigned',
       responses: false
     },
     {
       title: 'DIGITAL MARKETING LEAD',
       description: 'I create digital marketing campaigns and manage influencers',
       id: 30,
+      selected: 'unassigned',
       responses: false
     },
     {
       title: 'STRATEGY DESIGNER',
       description: 'I use analytics and data to design systems to sell more for the company',
       id: 29,
+      selected: 'unassigned',
       responses: false
     }]
 }]
@@ -465,6 +507,7 @@ export const hrAssistResp = [{
       title: 'TRAINING AND DEVELOPMENT',
       description: 'Train and Develop Staff',
       id: 28,
+      selected: 'unassigned',
       responses: trainDevResp
     }]
 }]
@@ -476,6 +519,7 @@ export const wareSuperResp = [{
       title: 'LOGISTICS/INVENTORY CONTROL',
       description: 'Manage Logistics and Stock',
       id: 27,
+      selected: 'unassigned',
       responses: logisticResp
     }]
 }]
@@ -487,6 +531,7 @@ export const adminResp = [{
       title: 'CUSTOMER SERVICE',
       description: 'Customer service representative',
       id: 26,
+      selected: 'unassigned',
       responses: custServiceResp
     }]
 }]
@@ -498,6 +543,7 @@ export const trainManagerResp = [{
       title: 'TRAINEE MANAGER',
       description: 'Creating and managing online stores and marketing',
       id: 25,
+      selected: 'unassigned',
       responses: traineeManResp
     }]
 }]
@@ -512,18 +558,21 @@ export const accDegResp = [{
       title: 'CREDIT CONTROL',
       description: 'Creating and managing online stores and marketing',
       id: 24,
+      selected: 'unassigned',
       responses: credControlResp
     },
     {
       title: 'ACCOUNTS RECEIVABLE',
       description: 'Creating and managing online stores and marketing',
       id: 23,
+      selected: 'unassigned',
       responses: accRecievResp
     },
     {
       title: 'ACCOUNTS PAYABLE',
       description: 'Creating and managing online stores and marketing',
       id: 22,
+      selected: 'unassigned',
       responses: accPayableResp
     }]
 }]
@@ -535,24 +584,28 @@ export const busDegResp = [{
       title: "BUYER'S ASSISTANT",
       description: 'Assist buyer and learn from them',
       id: 21,
+      selected: 'unassigned',
       responses: buyAssistResp
     },
     {
       title: 'PROMOTIONS',
       description: 'Promote brands and their values to the consumer',
       id: 20,
+      selected: 'unassigned',
       responses: promoResp
     },
     {
       title: 'ADVERTISING',
       description: 'Help the Advertising Team and generate sales',
       id: 19,
+      selected: 'unassigned',
       responses: advertResp
     },
     {
       title: 'MARKETING ASSISTANT',
       description: 'Help the Marketing Team',
       id: 18,
+      selected: 'unassigned',
       responses: marketAssistResp
     }]
 }]
@@ -565,12 +618,14 @@ export const itDegResp = [{
       title: 'POS ADMINISTRATOR',
       description: 'Manage in-store and online point of sale system',
       id: 17,
+      selected: 'unassigned',
       responses: posAdminResp
     },
     {
       title: 'WEB APPLICATIONS',
       description: 'Creating and managing online stores and marketing',
       id: 16,
+      selected: 'unassigned',
       responses: webAppResp
     }]
 }]
@@ -582,6 +637,7 @@ export const hrDegResp = [{
       title: 'HR ASSISTANT',
       description: 'Assistant in HR',
       id: 15,
+      selected: 'unassigned',
       responses: hrAssistResp
     }]
 }]
@@ -593,6 +649,7 @@ export const warehousingResp = [{
       title: 'WAREHOUSE SUPERVISOR',
       description: 'Creating and managing online stores and marketing',
       id: 14,
+      selected: 'unassigned',
       responses: wareSuperResp
     }
   ]
@@ -605,6 +662,7 @@ export const receptionResp = [{
       title: 'SUPPORT/ OFFICE ADMIN',
       description: 'Office administration and Support',
       id: 13,
+      selected: 'unassigned',
       responses: adminResp
     }]
 }]
@@ -616,6 +674,7 @@ export const shopFloorResp = [{
       title: 'TRAINEE MANAGER',
       description: 'Creating and managing online stores and marketing',
       id: 12,
+      selected: 'unassigned',
       responses: trainManagerResp
     }]
 }]
@@ -627,18 +686,21 @@ export const dataEntryResp = [{
       title: 'CREDIT CONTROL',
       description: 'Creating and managing online stores and marketing',
       id: 11,
+      selected: 'unassigned',
       responses: credControlResp
     },
     {
       title: 'ACCOUNTS RECEIVABLE',
       description: 'Creating and managing online stores and marketing',
       id: 10,
+      selected: 'unassigned',
       responses: accRecievResp
     },
     {
       title: 'ACCOUNTS PAYABLE',
       description: 'Creating and managing online stores and marketing',
       id: 9,
+      selected: 'unassigned',
       responses: accPayableResp
     }]
 }]
@@ -654,6 +716,7 @@ export const baseLevel = [
         title: 'ACCOUNTING DEGREE',
         description: 'I like working with numbers and problem solving',
         id: 8,
+        selected: 'unassigned',
         responses: accDegResp
       },
       // B
@@ -661,6 +724,7 @@ export const baseLevel = [
         title: 'BUSINESS DEGREE',
         description: 'I like challenges and growing a project being efficient being efficient',
         id: 7,
+        selected: 'unassigned',
         responses: busDegResp
       },
       // C
@@ -668,6 +732,7 @@ export const baseLevel = [
         title: 'IT DEGREE',
         description: 'I like working with computers and the internet',
         id: 6,
+        selected: 'unassigned',
         responses: itDegResp
       },
       // D
@@ -675,6 +740,7 @@ export const baseLevel = [
         title: 'HUMAN RESOURCES DEGREE',
         description: 'I like working with people and managing projects',
         id: 5,
+        selected: 'unassigned',
         responses: hrDegResp
       }
     ]
@@ -687,6 +753,7 @@ export const baseLevel = [
         title: 'WAREHOUSING',
         description: 'I like making efficient systems and like fitness',
         id: 4,
+        selected: 'unassigned',
         responses: warehousingResp
       },
       // F
@@ -694,6 +761,7 @@ export const baseLevel = [
         title: 'RECEPTION',
         description: 'I like helping people and being efficient being efficient being efficient',
         id: 3,
+        selected: 'unassigned',
         responses: receptionResp
       },
       // G
@@ -701,6 +769,7 @@ export const baseLevel = [
         title: 'SHOP FLOOR',
         description: 'I like being in a retail environment and making sales',
         id: 2,
+        selected: 'unassigned',
         responses: shopFloorResp
       },
       // H
@@ -708,6 +777,7 @@ export const baseLevel = [
         title: 'DATA ENTRY',
         description: 'I like working with numbers and being given tasks',
         id: 1,
+        selected: 'unassigned',
         responses: dataEntryResp
       }
     ]
