@@ -482,21 +482,21 @@ export const webAppResp = [{
       description: 'I lead web app and online tool projects for the company to use',
       id: 31,
       selected: 'unassigned',
-      responses: false
+      responses: ceo
     },
     {
       title: 'DIGITAL MARKETING LEAD',
       description: 'I create digital marketing campaigns and manage influencers',
       id: 30,
       selected: 'unassigned',
-      responses: false
+      responses: ceo
     },
     {
       title: 'STRATEGY DESIGNER',
       description: 'I use analytics and data to design systems to sell more for the company',
       id: 29,
       selected: 'unassigned',
-      responses: false
+      responses: ceo
     }]
 }]
 // D
