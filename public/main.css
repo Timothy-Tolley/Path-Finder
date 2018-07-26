@@ -73,3 +73,24 @@ body {
   content:url('/images/rwr-logo.png');
   width: 60%;
 }
+
+
+/* ANIMATION */
+
+.move-fade-enter {
+  opacity: 0.01;
+  transform: translate3d(10%,0%,0);
+}
+.move-fade-enter-active {
+  opacity: 1;
+  transform: translate3d(0%,0%,0);
+  transition: all 1700ms ease-out 2000ms;
+}
+
+.move-fade-exit {
+  opacity: 1;
+}
+.move-fade-exit-active {
+  opacity: 0.01;
+  transition: all 200ms ease-in;
+}
