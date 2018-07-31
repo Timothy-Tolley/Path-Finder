@@ -1,5 +1,6 @@
 import uuid from 'uuid'
 import React from 'react'
+import {connect} from 'react-redux'
 import {CSSTransition} from 'react-transition-group'
 
 import './pathfinder.css'
@@ -26,9 +27,10 @@ class Pathfinder extends React.Component {
       levelTwo: baseLevel,
       levelThree: false,
       levelFour: false,
-      final: false
+      final: false,
+      previousLevel: null
     }
-    // this.makeShift = this.makeShift.bind(this)
+    this.goBack = this.goBack.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.markSelected = this.markSelected.bind(this)
     this.levelProceed = this.levelProceed.bind(this)
@@ -36,23 +38,7 @@ class Pathfinder extends React.Component {
 
   componentDidMount () {
     this.setState({
-      active: true,
-      levelOne: [{
-        label: '',
-        options: [
-          {
-            title: 'RETAIL ASSISTANT',
-            description: 'YOUR FRIENDLY STORE ASSISTANT',
-            id: 100,
-            selected: 'selected',
-            responses: null
-          }
-        ]
-      }],
-      levelTwo: baseLevel,
-      levelThree: false,
-      levelFour: false,
-      final: false
+      active: true
     })
   }
 
@@ -70,55 +56,35 @@ class Pathfinder extends React.Component {
     return newLevel
   }
 
-  levelProceed (incomingLevel, selectedLevel) {
+
+  levelProceed (incomingLevel, selectedLevel, previousLevel) {
     if (incomingLevel[0].options[0].responses === false) {
       this.setState({
-        active: true,
         levelOne: this.state.levelTwo,
         levelTwo: this.state.levelThree,
         levelThree: selectedLevel,
         levelFour: incomingLevel,
-        final: true
+        final: true,
+        previousLevel: previousLevel
       })
     } else if (!this.state.levelThree) {
-      this.setState({
-        active: true,
-        levelOne: [{
-          label: '',
-          options: [
-            {
-              title: 'RETAIL ASSISTANT',
-              description: 'YOUR FRIENDLY STORE ASSISTANT',
-              id: 100,
-              selected: 'selected',
-              responses: null
-            }
-          ]
-        }],
-        levelTwo: selectedLevel,
-        levelThree: incomingLevel,
-        levelFour: false,
-        final: false
-      })
+      // this.setState({
+      //   levelTwo: selectedLevel,
+      //   levelThree: incomingLevel,
+      //   previousLevel: this.state
+      // })
+      this.setState((prevState, props) => {
+        return {
+            levelTwo: selectedLevel,
+            levelThree: incomingLevel,
+            previousLevel: prevState
+             }
+          })
     } else if (!this.state.levelFour) {
       this.setState({
-        active: true,
-        levelOne: [{
-          label: '',
-          options: [
-            {
-              title: 'RETAIL ASSISTANT',
-              description: 'YOUR FRIENDLY STORE ASSISTANT',
-              id: 100,
-              selected: 'selected',
-              responses: null
-            }
-          ]
-        }],
-        levelTwo: baseLevel,
         levelThree: selectedLevel,
         levelFour: incomingLevel,
-        final: false
+        previousLevel: previousLevel
       })
     } else if (this.state.levelThree && this.state.levelFour) {
       this.setState({
@@ -127,9 +93,15 @@ class Pathfinder extends React.Component {
         levelTwo: this.state.levelThree,
         levelThree: selectedLevel,
         levelFour: incomingLevel,
-        final: false
+        previousLevel: previousLevel
       })
     }
+  }
+
+  goBack () {
+    this.setState(function(prevState, props){
+      return prevState.previousLevel
+   })
   }
 
   handleClick (e, option) {
@@ -297,11 +269,19 @@ class Pathfinder extends React.Component {
                 )
               })}
             </div>}
-
+            <div className = 'back-button'>
+              <button  onClick = {() => this.goBack()}>
+                back
+              </button>
+            </div>
         </div>
       </CSSTransition >
     )
   }
 }
 
-export default Pathfinder
+function mapStateToProps () {
+
+}
+
+export default connect(mapStateToProps)(Pathfinder)
