@@ -5,32 +5,32 @@ import {CSSTransition} from 'react-transition-group'
 
 import './pathfinder.css'
 
-import {baseLevel} from '../../data/path-data'
+// import {baseLevel} from '../../data/path-data'
 
 class Pathfinder extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      active: false,
-      levelOne: [{
-        label: '',
-        options: [
-          {
-            title: 'RETAIL ASSISTANT',
-            description: 'YOUR FRIENDLY STORE ASSISTANT',
-            id: 100,
-            selected: 'selected',
-            responses: null
-          }
-        ]
-      }],
-      levelTwo: baseLevel,
-      levelThree: false,
-      levelFour: false,
-      final: false,
-      previousLevel: null
+      active: false
+    //   levelOne: [{
+    //     label: '',
+    //     options: [
+    //       {
+    //         title: 'RETAIL ASSISTANT',
+    //         description: 'YOUR FRIENDLY STORE ASSISTANT',
+    //         id: 100,
+    //         selected: 'selected',
+    //         responses: null
+    //       }
+    //     ]
+    //   }],
+    //   levelTwo: baseLevel,
+    //   levelThree: false,
+    //   levelFour: false,
+    //   final: false,
+    //   previousLevel: null
     }
-    this.goBack = this.goBack.bind(this)
+    // this.goBack = this.goBack.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.markSelected = this.markSelected.bind(this)
     this.levelProceed = this.levelProceed.bind(this)
@@ -53,56 +53,58 @@ class Pathfinder extends React.Component {
         }
       }
     }
+    console.log('mark')
     return newLevel
   }
 
 
   levelProceed (incomingLevel, selectedLevel, previousLevel) {
-    if (incomingLevel[0].options[0].responses === false) {
-      this.setState({
-        levelOne: this.state.levelTwo,
-        levelTwo: this.state.levelThree,
-        levelThree: selectedLevel,
-        levelFour: incomingLevel,
-        final: true,
-        previousLevel: previousLevel
-      })
-    } else if (!this.state.levelThree) {
-      // this.setState({
-      //   levelTwo: selectedLevel,
-      //   levelThree: incomingLevel,
-      //   previousLevel: this.state
-      // })
-      this.setState((prevState, props) => {
-        return {
-            levelTwo: selectedLevel,
-            levelThree: incomingLevel,
-            previousLevel: prevState
-             }
-          })
-    } else if (!this.state.levelFour) {
-      this.setState({
-        levelThree: selectedLevel,
-        levelFour: incomingLevel,
-        previousLevel: previousLevel
-      })
-    } else if (this.state.levelThree && this.state.levelFour) {
-      this.setState({
-        active: true,
-        levelOne: this.state.levelTwo,
-        levelTwo: this.state.levelThree,
-        levelThree: selectedLevel,
-        levelFour: incomingLevel,
-        previousLevel: previousLevel
-      })
-    }
+    console.log('level')
+    // if (incomingLevel[0].options[0].responses === false) {
+    //   this.setState({
+    //     levelOne: this.state.levelTwo,
+    //     levelTwo: this.state.levelThree,
+    //     levelThree: selectedLevel,
+    //     levelFour: incomingLevel,
+    //     final: true,
+    //     previousLevel: previousLevel
+    //   })
+    // } else if (!this.state.levelThree) {
+    //   // this.setState({
+    //   //   levelTwo: selectedLevel,
+    //   //   levelThree: incomingLevel,
+    //   //   previousLevel: this.state
+    //   // })
+    //   this.setState((prevState, props) => {
+    //     return {
+    //         levelTwo: selectedLevel,
+    //         levelThree: incomingLevel,
+    //         previousLevel: prevState
+    //          }
+    //       })
+    // } else if (!this.state.levelFour) {
+    //   this.setState({
+    //     levelThree: selectedLevel,
+    //     levelFour: incomingLevel,
+    //     previousLevel: previousLevel
+    //   })
+    // } else if (this.state.levelThree && this.state.levelFour) {
+    //   this.setState({
+    //     active: true,
+    //     levelOne: this.state.levelTwo,
+    //     levelTwo: this.state.levelThree,
+    //     levelThree: selectedLevel,
+    //     levelFour: incomingLevel,
+    //     previousLevel: previousLevel
+    //   })
+    // }
   }
 
-  goBack () {
-    this.setState(function(prevState, props){
-      return prevState.previousLevel
-   })
-  }
+  // goBack () {
+  //   this.setState(function(prevState, props){
+  //     return prevState.previousLevel
+  //  })
+  // }
 
   handleClick (e, option) {
     if (option.selected !== 'unassigned') {
@@ -110,12 +112,12 @@ class Pathfinder extends React.Component {
     }
     let targetId = e.target.id
     let currentLevelData = null
-    if (!this.state.levelThree) {
-      currentLevelData = this.state.levelTwo
-    } else if (this.state.levelThree && !this.state.levelFour) {
-      currentLevelData = this.state.levelThree
-    } else if (this.state.levelFour) {
-      currentLevelData = this.state.levelFour
+    if (!this.props.levelThree) {
+      currentLevelData = this.props.levelTwo
+    } else if (this.props.levelThree && !this.props.levelFour) {
+      currentLevelData = this.props.levelThree
+    } else if (this.props.levelFour) {
+      currentLevelData = this.props.levelFour
     }
     let selectedLevel = this.markSelected(targetId, currentLevelData)
     this.levelProceed(option.responses, selectedLevel)
@@ -134,7 +136,7 @@ class Pathfinder extends React.Component {
         <div className = 'pathfinder-app' id = 'pathfinder-app'>
 
           <div className = 'levelOne level'>
-            {this.state.levelOne.map((section) => {
+            {this.props.levelOne.map((section) => {
               return (
                 <div className = 'label-cont' key = {uuid()}>
                   <p className = 'label'>
@@ -161,7 +163,7 @@ class Pathfinder extends React.Component {
           </div>
 
           <div className = 'levelTwo level'>
-            {this.state.levelTwo.map((section) => {
+            {this.props.levelTwo.map((section) => {
               return (
                 <div className = 'label-cont' key = {uuid()}>
                   <p className = 'label'>
@@ -188,7 +190,7 @@ class Pathfinder extends React.Component {
           </div>
 
           <div className = 'levelThree level'>
-            {this.state.levelThree && this.state.levelThree.map((section) => {
+            {this.props.levelThree && this.props.levelThree.map((section) => {
               return (
                 <div className = 'label-cont' key = {uuid()}>
                   <p className = 'label'>
@@ -213,9 +215,9 @@ class Pathfinder extends React.Component {
               )
             })}
           </div>
-          {!this.state.final
+          {!this.props.final
             ? <div className = 'levelFour level'>
-              {this.state.levelFour && this.state.levelFour.map((section) => {
+              {this.props.levelFour && this.props.levelFour.map((section) => {
                 return (
                   <div className = 'label-cont' key = {uuid()}>
                     <p className = 'label'>
@@ -242,7 +244,7 @@ class Pathfinder extends React.Component {
             </div>
 
             : <div className = 'levelFour level'>
-              {this.state.levelFour && this.state.levelFour.map((section) => {
+              {this.props.levelFour && this.props.levelFour.map((section) => {
                 return (
                   <div className = 'label-cont' key = {uuid()}>
                     <p className = 'label'>
@@ -269,19 +271,26 @@ class Pathfinder extends React.Component {
                 )
               })}
             </div>}
-            <div className = 'back-button'>
+            {/* <div className = 'back-button'>
               <button  onClick = {() => this.goBack()}>
                 back
               </button>
-            </div>
+            </div> */}
         </div>
       </CSSTransition >
     )
   }
 }
 
-function mapStateToProps () {
-
+function mapStateToProps (state) {
+  return {
+      levelOne: state.levelOne,
+      levelTwo: state.levelTwo,
+      levelThree: state.levelThree,
+      levelFour: state.levelFour,
+      final: state.final,
+      previousLevel: state.previousLevel
+    }
 }
 
 export default connect(mapStateToProps)(Pathfinder)

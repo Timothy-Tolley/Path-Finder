@@ -783,3 +783,16 @@ export const baseLevel = [
     ]
   }
 ]
+
+export const startPoint = [{
+  label: '',
+  options: [
+    {
+      title: 'RETAIL ASSISTANT',
+      description: 'YOUR FRIENDLY STORE ASSISTANT',
+      id: 100,
+      selected: 'selected',
+      responses: null
+    }
+  ]
+}]
