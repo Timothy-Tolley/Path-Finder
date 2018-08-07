@@ -9,7 +9,7 @@ const levelTwo = (state = initialState, action) => {
       return action.level
     }
     case (LEVEL_TWO_RESET): {
-      return intialState
+      return initialState
     }
     default:
       return state

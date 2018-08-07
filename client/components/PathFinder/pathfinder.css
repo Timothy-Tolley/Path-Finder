@@ -76,51 +76,14 @@
  pointer-events: none;
 }
 
-/* END MESSAGE */
-
-/* END MESSAGE ANIMATION - 30% delay to allow for mounting */
-
-@keyframes fadein {
-  0% { opacity: 0; }
-  30% {
-    opacity: 0;
-    transform: translateX(20%)
-  }
-  100%  { opacity: 1; 
-    transform: translateX(0%)
-  }
-}
-
-/* END MESSAGE ANIMATION SPEED HERE */
-.end-message-container {
-  width: 70%;
-  display:flex;
-  align-content: center;
-  justify-content: center;
-  animation-name: fadein;
-  animation-duration: 1700ms;
-}
-
-.end-message-box {
-  width: 50%; 
-  display:flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-}
-
 /* DEFINE TRANSITIONS */
 
-/* FEATURED BOX ENTRANCE */
+/* ENTRANCE */
 
 @keyframes move-fade-in {
   0% {
-    opacity: 0.01;
-    transform: translate3d(100%,0%,0);
-  }
-  20% {
-    opacity: 1;
-    transform: translate3d(100%,0%,0);
+    opacity: 0.0;
+    transform: translate3d(25%,0%,0);
   }
   100% {
     opacity: 1;
@@ -128,7 +91,7 @@
   }
 }
 
-/* ANIMATION SPEED FOR ORANGE BOX ENTRANCE MAKE ALL THE SAME */
+/* ANIMATION SPEED and KEYFRAME SELECTION */
 .move-fade-enter {
   animation-name: move-fade-in;
   animation-duration: 3000ms;
@@ -137,7 +100,6 @@
   animation-name: move-fade-in;
   animation-duration: 3000ms;
 }
-/* CAN IGNORE */
 .move-fade-exit {
   opacity: 1;
 }
@@ -146,25 +108,40 @@
   transition: all 3000ms ease-out;
 }
 
-/* LIST ANIMATION */
-/* ANIMATION SPEED FOR LIST CONTAINER ENTRANCE */
 
-.list-fade-enter {
+/* LEVEL THREE ENTRANCE ANIMATION */
+
+.level-ani-enter {
   opacity: 0.01;
-  transform: translate3d(10%,0%,0);
-}
-.list-fade-enter-active {
-  opacity: 1;
-  transform: translate3d(0%,0%,0);
-  /* FIRST ms IS DURATION, SECOND DELAY*/ 
-  transition: all 1700ms ease-out 2000ms;
 }
 
-/* CAN IGNORE */
-.list-fade-exit {
+.level-ani-enter-active {
   opacity: 1;
+  transition: all 3000ms ease-in;
 }
-.list-fade-exit-active {
-  opacity: 0.01;
-  transition: all 200ms ease-in;
+.level-ani-exit {
+  opacity: 1;
+  transform: translate3d(0%,0%,0)
+}
+
+.level-ani-exit-active {
+  opacity: 0;
+  transform: translate3d(-25%,0%,0);
+  transition: all 3000ms ease-out;
+}
+
+/* ANIMATE MOVEMENT */
+
+.move-left {
+  animation-name: move-left;
+  animation-duration: 2000ms;
+}
+
+@keyframes move-left {
+  0% {
+    transform: translate3d(0%,0%,0);
+  }
+  100% {
+    transform: translate3d(-25%,0%,0);
+  }
 }

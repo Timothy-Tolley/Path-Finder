@@ -7,11 +7,11 @@ import {resetPreviousLevel} from './previous-level'
 
 export function resetLevels () {
   return dispatch => {
-    dispatch(resetFinal)
-    dispatch(resetLevelOne)
-    dispatch(resetLevelTwo)
-    dispatch(resetLevelFour)
-    dispatch(resetLevelThree)
-    dispatch(resetPreviousLevel)
+    dispatch(resetFinal())
+    dispatch(resetLevelOne())
+    dispatch(resetLevelTwo())
+    dispatch(resetLevelFour())
+    dispatch(resetLevelThree())
+    dispatch(resetPreviousLevel())
   }
 }

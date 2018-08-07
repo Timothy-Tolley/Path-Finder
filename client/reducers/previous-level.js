@@ -8,7 +8,7 @@ const previousLevel = (state = initialState, action) => {
       return action.previousLevel
     }
     case (PREVIOUS_LEVEL_RESET): {
-      return intialState
+      return initialState
     }
     default:
       return state

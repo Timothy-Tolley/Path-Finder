@@ -1,9 +1,9 @@
 export const FINAL = 'FINAL'
 
-export function setFinal () {
+export function setFinal (final) {
   return {
     type: FINAL,
-    final: true
+    final: final
   }
 }
 
@@ -13,4 +13,3 @@ export function resetFinal () {
     final: false
   }
 }
-
