@@ -1,6 +1,5 @@
 * {
   margin: 0; 
-  border: 0;
 }
 
 #app {
@@ -44,6 +43,23 @@ body {
   font-size: 1.2rem;
 }
 
+.footer-button {
+  color: #e57f35;
+  font-size: 1rem;
+  outline: none;
+  border: solid 1px;
+  border-radius: 3px;
+  border-color:  #e57f35;
+  margin-right: 4px;
+}
+
+.footer-button:focus{
+  outline: none;   
+}
+
+.footer-button :hover {
+  color: grey;
+}
 
 /* label size and coloring*/
 .label {
@@ -93,4 +109,8 @@ body {
 .move-fade-exit-active {
   opacity: 0.01;
   transition: all 200ms ease-in;
+}
+
+::-webkit-scrollbar {
+  display:none
 }
