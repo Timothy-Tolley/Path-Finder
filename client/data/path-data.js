@@ -306,7 +306,7 @@ export const commResp = [{
   label: '',
   options: [
     {
-      title: 'Marketing Manager',
+      title: 'MARKETING MANAGER',
       description: 'Manage the Marketing of the entire Brand',
       id: 46,
       selected: 'unassigned',
@@ -318,7 +318,7 @@ export const techSuppResp = [{
   label: 'work in field - gain 5 yrs experience',
   options: [
     {
-      title: 'Project Management',
+      title: 'PROJECT MANAGEMENT',
       description: 'Run the operations of the brand',
       id: 45,
       selected: 'unassigned',
@@ -433,7 +433,7 @@ export const promoResp = [{
   label: '',
   options: [
     {
-      title: 'Marketing Manager',
+      title: 'MARKETING MANAGER',
       description: 'Manage the Marketing of the entire Brand',
       id: 35,
       selected: 'unassigned',

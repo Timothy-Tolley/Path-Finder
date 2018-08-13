@@ -4,17 +4,39 @@ import {connect} from 'react-redux'
 import './footer.css'
 import {resetLevels} from '../../actions/reset'
 import {usePreviousLevel} from '../../actions/previous-level'
-import {displayWebAddress, fullWebAddress, phoneNum, email
-  // ,fbAddress, twitterAddress, linkedInAddress, instagramAddress
-} from '../../data/constants'
+import {displayWebAddress, fullWebAddress, phoneNum, email} from '../../data/constants'
 
 class Footer extends React.Component {
   goBack () {
-    this.props.dispatch(usePreviousLevel(this.props.previousLevel))
+    if (this.props.previousLevel === false) {
+      return
+    }
+    if (this.props.final) {
+      this.props.dispatch(usePreviousLevel(this.props.previousLevel))
+      this.shiftRight(2)
+    } else {
+      this.props.dispatch(usePreviousLevel(this.props.previousLevel))
+      this.shiftRight(4)
+    }
   }
 
   reset () {
+    if (this.props.previousLevel === false) {
+      return
+    }
     this.props.dispatch(resetLevels())
+    setTimeout(() =>
+      this.resetRight(), 3000)
+  }
+
+  shiftRight (fraction) {
+    const wordMap = document.getElementById('pathfinder-app')
+    wordMap.scrollLeft -= window.innerWidth / fraction
+  }
+
+  resetRight () {
+    const wordMap = document.getElementById('pathfinder-app')
+    wordMap.scrollLeft -= window.innerWidth * 2
   }
 
   render () {
@@ -32,26 +54,14 @@ class Footer extends React.Component {
           </div>
         </div>
         <div className = 'footer-icons'>
-          {/* <a href={fbAddress} target='_blank' rel = 'noopener noreferrer'>
-            <img src = '/images/facebook.png' alt = 'Facebook icon' className = 'social-icon'/>
-          </a>
-          <a href={twitterAddress} target='_blank' rel = 'noopener noreferrer'>
-            <img src = '/images/twitter.png' alt = 'Twitter icon' className = 'social-icon'/>
-          </a>
-          <a href={linkedInAddress} target='_blank' rel = 'noopener noreferrer'>
-            <img src = '/images/linkedin.png' alt = 'Linkedin icon' className = 'social-icon'/>
-          </a>
-          <a href={instagramAddress} target='_blank' rel = 'noopener noreferrer'>
-            <img src = '/images/instagram.png' alt = 'instagram icon' className = 'social-icon'/>
-          </a> */}
           <div className = 'back-button'>
-            <button onClick = {() => this.goBack()}>
-                back
+            <button className = 'footer-button' onClick = {() => this.goBack()}>
+                BACK
             </button>
           </div>
-          <div className = 'reset-button'>
-            <button onClick = {() => this.reset()}>
-                reset
+          <div className = 'reset-button footer-item'>
+            <button className = 'footer-button' onClick = {() => this.reset()}>
+                RESET
             </button>
           </div>
         </div>
@@ -62,7 +72,8 @@ class Footer extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    previousLevel: state.previousLevel
+    previousLevel: state.previousLevel,
+    final: state.final
   }
 }
 

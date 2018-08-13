@@ -1,4 +1,4 @@
-import {LEVEL_THREE_NEW, LEVEL_THREE_RESET} from '../actions/level-three'
+import {LEVEL_THREE_NEW, LEVEL_THREE_RESET, LEVEL_THREE_RESET_ACTIVE} from '../actions/level-three'
 
 const initialState = false
 
@@ -20,7 +20,7 @@ export const levelThreeActive = (state = initialState, action) => {
     case (LEVEL_THREE_NEW): {
       return true
     }
-    case (LEVEL_THREE_RESET): {
+    case (LEVEL_THREE_RESET_ACTIVE): {
       return false
     }
     default:

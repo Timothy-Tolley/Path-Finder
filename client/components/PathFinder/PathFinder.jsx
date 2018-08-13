@@ -1,4 +1,3 @@
-import uuid from 'uuid'
 import React from 'react'
 import {connect} from 'react-redux'
 import {CSSTransition} from 'react-transition-group'
@@ -6,6 +5,17 @@ import {CSSTransition} from 'react-transition-group'
 import './pathfinder.css'
 import {activeOn} from '../../actions/active'
 import {setLevels} from '../../actions/set-levels'
+import {addSelection} from '../../actions/selections'
+
+import LevelOne from '../LevelOne/LevelOne'
+import LevelTwo from '../LevelTwo/LevelTwo'
+import LevelThree from '../LevelThree/LevelThree'
+import LevelFour from '../LevelFour/LevelFour'
+import LevelFive from '../LevelFive/LevelFive'
+import LevelSix from '../LevelSix/LevelSix'
+import LevelSeven from '../LevelSeven/LevelSeven'
+import LevelEight from '../LevelEight/LevelEight'
+import Final from '../Final/Final'
 
 class Pathfinder extends React.Component {
   componentDidMount () {
@@ -19,6 +29,7 @@ class Pathfinder extends React.Component {
       for (let j = 0; j < newLevel[i].options.length; j++) {
         if (newLevel[i].options[j].id === Number(id)) {
           newLevel[i].options[j].selected = 'selected'
+          this.recordSelection(newLevel[i].options[j].title)
         } else {
           newLevel[i].options[j].selected = 'notSelected'
         }
@@ -27,10 +38,9 @@ class Pathfinder extends React.Component {
     return newLevel
   }
 
-  shiftLeft () {
+  shiftLeft (fraction) {
     const wordMap = document.getElementById('pathfinder-app')
-    wordMap.style.transform = 'translate3d(-25%, 0, 0)'
-    wordMap.style.transition = 'all 2s ease-in-out'
+    wordMap.scrollLeft += window.innerWidth / fraction
   }
 
   levelProceed (incomingLevel, selectedLevel) {
@@ -39,25 +49,43 @@ class Pathfinder extends React.Component {
       levelTwo: this.props.levelTwo,
       levelThree: this.props.levelThree,
       levelFour: this.props.levelFour,
+      levelFive: this.props.levelFive,
+      levelSix: this.props.levelSix,
+      levelSeven: this.props.levelSeven,
+      levelEight: this.props.levelEight,
       previousLevel: this.props.previousLevel,
-      final: false
+      final: false,
+      selections: this.props.selections
     }
+    let finalCheck = false
     if (incomingLevel[0].options[0].responses === false) {
-      this.props.dispatch(setLevels(true, this.props.levelTwo, this.props.levelThree, selectedLevel, incomingLevel, prev))
-    } else if (this.props.levelThree && this.props.levelFour) {
-      this.props.dispatch(setLevels(false, this.props.levelTwo, this.props.levelThree, selectedLevel, incomingLevel, prev))
+      finalCheck = true
+    } else { finalCheck = false }
+
+    if (this.props.levelSeven && !this.props.levelEight) {
+      this.props.dispatch(setLevels(finalCheck, 7, selectedLevel, incomingLevel, prev))
+    } else if (this.props.levelSix && !this.props.levelSeven) {
+      this.props.dispatch(setLevels(finalCheck, 6, selectedLevel, incomingLevel, prev))
+    } else if (this.props.levelFive && !this.props.levelSix) {
+      this.props.dispatch(setLevels(finalCheck, 5, selectedLevel, incomingLevel, prev))
+    } else if (this.props.levelFour && !this.props.levelFive) {
+      this.props.dispatch(setLevels(finalCheck, 4, selectedLevel, incomingLevel, prev))
     } else if (this.props.levelThree && !this.props.levelFour) {
-      this.props.dispatch(setLevels(false, false, false, selectedLevel, incomingLevel, prev))
-    } else if (!this.props.levelThree && !this.props.levelFour) {
-      this.props.dispatch(setLevels(false, false, selectedLevel, incomingLevel, false, prev))
+      this.props.dispatch(setLevels(finalCheck, 3, selectedLevel, incomingLevel, prev))
+    } else if (this.props.levelTwo && !this.props.levelThree) {
+      this.props.dispatch(setLevels(finalCheck, 2, selectedLevel, incomingLevel, prev))
     }
+  }
+
+  recordSelection (newTitle) {
+    // creates a deep copy of the level so does not directly effect the props
+    let newSelections = JSON.parse(JSON.stringify(this.props.selections))
+    newSelections.push(newTitle)
+    this.props.dispatch(addSelection(newSelections))
   }
 
   handleClick (e, option) {
     if (option.selected !== 'unassigned') {
-      return
-    }
-    if (!option.responses) {
       return
     }
     let targetId = e.target.id
@@ -66,14 +94,25 @@ class Pathfinder extends React.Component {
       currentLevelData = this.props.levelTwo
     } else if (this.props.levelThree && !this.props.levelFour) {
       currentLevelData = this.props.levelThree
-    } else if (this.props.levelFour) {
+    } else if (this.props.levelFour && !this.props.levelFive) {
       currentLevelData = this.props.levelFour
+    } else if (this.props.levelFive && !this.props.levelSix) {
+      currentLevelData = this.props.levelFive
+    } else if (this.props.levelSix && !this.props.levelSeven) {
+      currentLevelData = this.props.levelSix
+    } else if (this.props.levelSeven && !this.props.leveleight) {
+      currentLevelData = this.props.levelSeven
     }
     let selectedLevel = this.markSelected(targetId, currentLevelData)
-    if (this.props.levelThree && this.props.levelFour) {
-      this.shiftLeft()
-      setTimeout(() => { this.levelProceed(option.responses, selectedLevel) }, 2000)
-    } else { this.levelProceed(option.responses, selectedLevel) }
+    if (!option.responses[0].options.responses) {
+      this.levelProceed(option.responses, selectedLevel)
+      setTimeout(() => this.shiftLeft(2), 100)
+    } else if (this.props.levelFour && !this.props.final) {
+      this.levelProceed(option.responses, selectedLevel)
+      setTimeout(() => this.shiftLeft(4), 100)
+    } else {
+      this.levelProceed(option.responses, selectedLevel)
+    }
   }
 
   render () {
@@ -87,161 +126,15 @@ class Pathfinder extends React.Component {
         unmountOnExit
       >
         <div className = 'pathfinder-app' id = 'pathfinder-app'>
-
-          <div className = 'levelOne level'>
-            {this.props.levelOne.map((section) => {
-              return (
-                <div className = 'label-cont' key = {uuid()}>
-                  <p className = 'label'>
-                    {section.label}
-                  </p>
-                  <div className = 'options-cont'>
-                    {section.options.map((option) => {
-                      return (
-                        <div className = {`box ${option.selected}`} id = {option.id} value = {option} onClick = {(e) => this.handleClick(e, option)} key={option.id}>
-                          <p className = 'title'>
-                            {option.title}
-                          </p>
-                          <p className = 'description'>
-                            {option.description}
-                          </p>
-                        </div>
-                      )
-                    })}
-
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-          <div className = 'levelTwo level'>
-            {this.props.levelTwo.map((section) => {
-              return (
-                <div className = 'label-cont' key = {uuid()}>
-                  <p className = 'label'>
-                    {section.label}
-                  </p>
-                  <div className = 'options-cont'>
-                    {section.options.map((option) => {
-                      return (
-                        <div className = {`box ${option.selected}`} id = {option.id} value = {option} onClick = {(e) => this.handleClick(e, option)} key={option.id}>
-                          <p className = 'title'>
-                            {option.title}
-                          </p>
-                          <p className = 'description'>
-                            {option.description}
-                          </p>
-                        </div>
-                      )
-                    })}
-
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-          <CSSTransition
-            classNames = 'level-ani'
-            in = {this.props.levelThreeActive}
-            timeout = {4000}
-            component = {null}
-            mountOnEnter
-            unmountOnExit
-          >
-            <div className = 'levelThree level'>
-              {this.props.levelThree && this.props.levelThree.map((section) => {
-                return (
-                  <div className = 'label-cont' key = {uuid()}>
-                    <p className = 'label'>
-                      {section.label}
-                    </p>
-                    <div className = 'options-cont'>
-                      {section.options.map((option) => {
-                        return (
-                          <div className = {`box ${option.selected}`} id = {option.id} value = {option} onClick = {(e) => this.handleClick(e, option)} key={option.id}>
-                            <p className = 'title'>
-                              {option.title}
-                            </p>
-                            <p className = 'description'>
-                              {option.description}
-                            </p>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </CSSTransition>
-
-          {/* {!this.props.final
-            ?  */}
-          <CSSTransition
-            classNames = 'level-ani'
-            in = {this.props.levelFourActive}
-            timeout = {4000}
-            component = {null}
-            mountOnEnter
-            unmountOnExit
-          >
-            <div className = 'levelFour level'>
-              {this.props.levelFour && this.props.levelFour.map((section) => {
-                return (
-                  <div className = 'label-cont' key = {uuid()}>
-                    <p className = 'label'>
-                      {section.label}
-                    </p>
-                    <div className = 'options-cont'>
-                      {section.options.map((option) => {
-                        return (
-                          <div className = {`box ${option.selected}`} id = {option.id} value = {option} onClick = {(e) => this.handleClick(e, option)} key={option.id}>
-                            <p className = 'title'>
-                              {option.title}
-                            </p>
-                            <p className = 'description'>
-                              {option.description}
-                            </p>
-                          </div>
-                        )
-                      })}
-
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </CSSTransition>
-
-          {/* : <div className = 'levelFour level'>
-              {this.props.levelFour && this.props.levelFour.map((section) => {
-                return (
-                  <div className = 'label-cont' key = {uuid()}>
-                    <p className = 'label'>
-                      {section.label}
-                    </p>
-                    <div className = 'options-cont'>
-                      {section.options.map((option) => {
-                        return (
-                          <div className = {`box ${option.selected}`} id = {option.id} value = {option} onClick = {(e) => this.handleClick(e, option)} key={option.id}>
-                            <p className = 'title'>
-                              {option.title}
-                            </p>
-                            <p className = 'description'>
-                              {option.description}
-                            </p>
-                          </div>
-                        )
-                      })}
-                      <h1>
-                          Final
-                      </h1>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>} */}
+          <LevelOne click = {this.handleClick.bind(this)}/>
+          <LevelTwo click = {this.handleClick.bind(this)}/>
+          <LevelThree click = {this.handleClick.bind(this)}/>
+          <LevelFour click = {this.handleClick.bind(this)}/>
+          <LevelFive click = {this.handleClick.bind(this)} />
+          <LevelSix click = {this.handleClick.bind(this)}/>
+          <LevelSeven click = {this.handleClick.bind(this)}/>
+          <LevelEight click = {this.handleClick.bind(this)}/>
+          <Final />
         </div>
       </CSSTransition >
     )
@@ -256,9 +149,18 @@ function mapStateToProps (state) {
     levelThreeActive: state.levelThreeActive,
     levelFour: state.levelFour,
     levelFourActive: state.levelFourActive,
+    levelFive: state.levelFive,
+    levelFiveActive: state.levelFiveActive,
+    levelSix: state.levelSix,
+    levelSixActive: state.levelSixActive,
+    levelSeven: state.levelSeven,
+    levelSevenActive: state.levelSevenActive,
+    levelEight: state.levelEight,
+    levelEightActive: state.levelEightActive,
     final: state.final,
     previousLevel: state.previousLevel,
-    active: state.active
+    active: state.active,
+    selections: state.selections
   }
 }
 

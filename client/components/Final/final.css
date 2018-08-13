@@ -1,0 +1,76 @@
+.final-cont {
+}
+
+.final-box {
+  width: 85%;
+  max-height: 100%;
+  padding-top: 6px;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding-bottom: 6px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+  background-color: #e57f35;
+  color: white;
+  border-radius: 5px;
+  align-self: center
+}
+
+.down-arrow {
+  width: 5%;
+  align-self: center;
+  margin-bottom: 2px;
+  margin-top:2px
+}
+
+.final-option-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.final-choice {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.final-logo {
+  width: 70%;
+  align-self: center;
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+/* FINAL ENTRANCE */
+
+.open-enter {
+  height: 0%;
+  opacity: 0.01;
+}
+
+.open-enter.open-enter-active {
+  height: 100%;
+  opacity: 1;
+  transition: height 3s 0s, opacity 2s 0.5s;
+  /* transition: height 3000ms ease-in;
+  transition: 1000ms opacity 2000ms ease-in-out; */
+}
+
+.open-exit {
+  opacity: 1;
+}
+
+.open-exit.open-exit-active {
+  opacity: 0.01;
+  transition: opacity 800ms ease-in;
+}
+
+.open-exit-done {
+  opacity: 0;
+}

@@ -1,4 +1,4 @@
-import {LEVEL_FOUR_NEW, LEVEL_FOUR_RESET} from '../actions/level-four'
+import {LEVEL_FOUR_NEW, LEVEL_FOUR_RESET, LEVEL_FOUR_RESET_ACTIVE} from '../actions/level-four'
 
 const initialState = false
 
@@ -20,7 +20,7 @@ export const levelFourActive = (state = initialState, action) => {
     case (LEVEL_FOUR_NEW): {
       return true
     }
-    case (LEVEL_FOUR_RESET): {
+    case (LEVEL_FOUR_RESET_ACTIVE): {
       return false
     }
     default:
