@@ -95,7 +95,7 @@ class Pathfinder extends React.Component {
         return
       } else {
         this.props.dispatch(usePreviousLevel(this.props.previousLevel))
-        this.props.shiftRight(4)
+        this.props.shiftRight(4) 
         return
       }
     }
