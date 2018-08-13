@@ -100,7 +100,7 @@ export const multiSiteManResp = [{
       title: 'NATIONAL RETAIL OPS',
       description: 'Manage all the stores in the Region',
       id: 64,
-      selected: 'unassigned',
+      selected: 'selected',
       responses: false
     }]
 }]
@@ -119,7 +119,7 @@ export const ceo = [{
       title: 'CEO/GENERAL MANAGER',
       description: 'CEO or GM of an entire Brand',
       id: 63,
-      selected: 'unassigned',
+      selected: 'selected',
       responses: false
     }]
 }]
@@ -151,7 +151,7 @@ export const instoreVmResp = [{
       title: 'VISUAL MERCHANDISING MANAGER',
       description: 'Manage Visual Merchandising for the entire brand',
       id: 60,
-      selected: 'unassigned',
+      selected: 'selected',
       responses: false
     }]
 }]
@@ -197,7 +197,7 @@ export const catBrandManResp = [{
       title: 'MERCHANDISE MANAGER',
       description: 'Manage the image and product from the entire brand',
       id: 56,
-      selected: 'unassigned',
+      selected: 'selected',
       responses: false
     }]
 }]
@@ -209,7 +209,7 @@ export const proManResp = [{
       title: 'IT/ DESIGN MANAGER',
       description: 'Manage the Technology used across the brand',
       id: 55,
-      selected: 'unassigned',
+      selected: 'selected',
       responses: false
     }]
 }]
@@ -234,7 +234,7 @@ export const paResp = [{
       title: 'OFFICE MANAGER',
       description: 'Manage an Entire Office',
       id: 53,
-      selected: 'unassigned',
+      selected: 'selected',
       responses: false
     }]
 }]
@@ -345,7 +345,7 @@ export const logisticResp = [{
       title: 'WAREHOUSE MANAGER',
       description: 'Manage stock for the entire brand',
       id: 43,
-      selected: 'unassigned',
+      selected: 'selected',
       responses: false
     }]
 }]

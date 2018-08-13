@@ -13,10 +13,10 @@ class Footer extends React.Component {
     }
     if (this.props.final) {
       this.props.dispatch(usePreviousLevel(this.props.previousLevel))
-      this.shiftRight(2)
+      this.props.shiftRight(2)
     } else {
       this.props.dispatch(usePreviousLevel(this.props.previousLevel))
-      this.shiftRight(4)
+      this.props.shiftRight(4)
     }
   }
 
@@ -27,11 +27,6 @@ class Footer extends React.Component {
     this.props.dispatch(resetLevels())
     setTimeout(() =>
       this.resetRight(), 3000)
-  }
-
-  shiftRight (fraction) {
-    const wordMap = document.getElementById('pathfinder-app')
-    wordMap.scrollLeft -= window.innerWidth / fraction
   }
 
   resetRight () {

@@ -6,6 +6,7 @@ import './pathfinder.css'
 import {activeOn} from '../../actions/active'
 import {setLevels} from '../../actions/set-levels'
 import {addSelection} from '../../actions/selections'
+import {usePreviousLevel} from '../../actions/previous-level'
 
 import LevelOne from '../LevelOne/LevelOne'
 import LevelTwo from '../LevelTwo/LevelTwo'
@@ -86,7 +87,17 @@ class Pathfinder extends React.Component {
 
   handleClick (e, option) {
     if (option.selected !== 'unassigned') {
-      return
+      if (this.props.previousLevel === false) {
+        return
+      } else if (this.props.final) {
+        this.props.dispatch(usePreviousLevel(this.props.previousLevel))
+        this.props.shiftRight(2)
+        return
+      } else {
+        this.props.dispatch(usePreviousLevel(this.props.previousLevel))
+        this.props.shiftRight(4)
+        return
+      }
     }
     let targetId = e.target.id
     let currentLevelData = null
