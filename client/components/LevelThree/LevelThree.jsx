@@ -49,7 +49,7 @@ class LevelThree extends React.Component {
     let currentLevelData = this.props.levelThree
     let selectedLevel = this.props.markSelected(targetId, currentLevelData)
     let reachedLevel = this.props.findActiveLevel()
-    let levelDifference = reachedLevel - 4
+    let levelDifference = reachedLevel - 3
     let incomingLevel = option.responses
     let finalClick = this.props.checkIfFinalClick(incomingLevel)
     let prev = {
