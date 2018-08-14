@@ -10,6 +10,9 @@ export const levelEight = (state = initialState, action) => {
     case (LEVEL_EIGHT_RESET): {
       return initialState
     }
+    case (LEVEL_EIGHT_RESET_ACTIVE): {
+      return initialState
+    }
     default:
       return state
   }

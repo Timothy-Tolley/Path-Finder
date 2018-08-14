@@ -10,6 +10,9 @@ export const levelThree = (state = initialState, action) => {
     case (LEVEL_THREE_RESET): {
       return initialState
     }
+    case (LEVEL_THREE_RESET_ACTIVE): {
+      return false
+    }
     default:
       return state
   }

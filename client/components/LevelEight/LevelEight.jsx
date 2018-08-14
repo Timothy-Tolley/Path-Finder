@@ -26,7 +26,7 @@ class LevelEight extends React.Component {
                 <div className = 'options-cont'>
                   {section.options.map((option) => {
                     return (
-                      <div className = {`box ${option.selected}`} id = {option.id} value = {option} onClick = {(e) => this.props.click(e, option)} key={option.id}>
+                      <div className = {`box ${option.selected}`} id = {option.id} value = {option} key={option.id}>
                         <p className = 'title'>
                           {option.title}
                         </p>

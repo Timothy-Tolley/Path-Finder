@@ -10,6 +10,9 @@ export const levelSix = (state = initialState, action) => {
     case (LEVEL_SIX_RESET): {
       return initialState
     }
+    case (LEVEL_SIX_RESET_ACTIVE): {
+      return false
+    }
     default:
       return state
   }

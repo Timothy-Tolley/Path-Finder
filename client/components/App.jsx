@@ -5,9 +5,9 @@ import Footer from './Footer/Footer'
 import PathFinder from './PathFinder/PathFinder'
 
 class App extends React.Component {
-  shiftRight (fraction) {
+  shiftRight (numOfLevels) {
     const wordMap = document.getElementById('pathfinder-app')
-    wordMap.scrollLeft -= window.innerWidth / fraction
+    wordMap.scrollLeft -= window.innerWidth / 4 * numOfLevels
   }
 
   render () {
