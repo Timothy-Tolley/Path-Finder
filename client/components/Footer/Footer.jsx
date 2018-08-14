@@ -26,7 +26,7 @@ class Footer extends React.Component {
     }
     this.props.dispatch(resetLevels())
     setTimeout(() =>
-      this.resetRight(), 3000)
+      this.resetRight(), 2700)
   }
 
   resetRight () {
@@ -49,11 +49,11 @@ class Footer extends React.Component {
           </div>
         </div>
         <div className = 'footer-icons'>
-          <div className = 'back-button'>
+          {/* <div className = 'back-button'>
             <button className = 'footer-button' onClick = {() => this.goBack()}>
                 BACK
             </button>
-          </div>
+          </div> */}
           <div className = 'reset-button footer-item'>
             <button className = 'footer-button' onClick = {() => this.reset()}>
                 RESET
