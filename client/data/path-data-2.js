@@ -18,31 +18,12 @@
 //     }]
 // }]
 
-// Eigth Level
-
-// A
-// B
-// C
-// D
-// E
-// F
-// G
-// H
-
-// Seventh Level
-
-// A
-// B
-// C
-// D
-// E
-// F
-// G
+// Variable have to be defined before they are used - Since the order isnt always linear, you will have to move some declarations to the top.
 export const catBrandManResp2 = [{
   label: '',
   options: [
     {
-      title: 'MERCHANDISE MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage the image and product from the entire brand',
       id: 68,
       selected: 'unassigned',
@@ -51,7 +32,7 @@ export const catBrandManResp2 = [{
 }]
 // H
 
-// Sixth Level
+// Eigth Level
 
 // A
 // B
@@ -64,7 +45,7 @@ export const plannerResp2 = [{
   label: '',
   options: [
     {
-      title: 'CATEGORY/ BRAND MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage the image and stock of the brand/category',
       id: 67,
       selected: 'unassigned',
@@ -75,29 +56,29 @@ export const buyerResp2 = [{
   label: '',
   options: [
     {
-      title: 'CATEGORY/ BRAND MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage the image and stock of the brand/category',
       id: 66,
       selected: 'unassigned',
       responses: catBrandManResp2
     }]
 }]
-export const regionalManResp = [{
+export const regionalManResp2 = [{
   label: '',
   options: [
     {
-      title: 'NATIONAL RETAIL OPS',
+      title: 'Option 2 Selections',
       description: 'Manage all the stores in the Region',
       id: 65,
       selected: 'unassigned',
       responses: false
     }]
 }]
-export const multiSiteManResp = [{
+export const multiSiteManResp2 = [{
   label: '',
   options: [
     {
-      title: 'NATIONAL RETAIL OPS',
+      title: 'Option 2 Selections',
       description: 'Manage all the stores in the Region',
       id: 64,
       selected: 'selected',
@@ -106,17 +87,17 @@ export const multiSiteManResp = [{
 }]
 // H
 
-// Fifth Level
+// Seventh Level
 
 // A
 // B
 // C
 // D
-export const ceo = [{
+export const ceo2 = [{
   label: '',
   options: [
     {
-      title: 'CEO/GENERAL MANAGER',
+      title: 'Option 2 Selections',
       description: 'CEO or GM of an entire Brand',
       id: 63,
       selected: 'selected',
@@ -130,83 +111,72 @@ export const buyAssistResp2 = [{
   label: '',
   options: [
     {
-      title: 'PLANNER',
+      title: 'Option 2 Selections',
       description: 'Plan the seasons trends for the buyer',
       id: 62,
       selected: 'unassigned',
       responses: plannerResp2
     },
     {
-      title: 'BUYER',
+      title: 'Option 2 Selections',
       description: 'Source the product for the Brand',
       id: 61,
       selected: 'unassigned',
       responses: buyerResp2
     }]
 }]
-export const instoreVmResp = [{
+export const instoreVmResp2 = [{
   label: '',
   options: [
     {
-      title: 'VISUAL MERCHANDISING MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage Visual Merchandising for the entire brand',
       id: 60,
       selected: 'selected',
       responses: false
     }]
 }]
-export const storeManResp = [{
+export const storeManResp2 = [{
   label: '',
   options: [
     {
-      title: 'REGIONAL MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage all the stores in a Region',
       id: 59,
       selected: 'unassigned',
-      responses: regionalManResp
+      responses: regionalManResp2
     },
     {
-      title: 'MULTI-SITE MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manager multiple shops in a region',
       id: 58,
       selected: 'unassigned',
-      responses: multiSiteManResp
+      responses: multiSiteManResp2
     }]
 }]
 // H
 
-// Forth Level
+// Sixth Level
 
 // A H
-export const accManResp = [{
+export const accManResp2 = [{
   label: '',
   options: [
     {
-      title: 'CFO',
+      title: 'Option 2 Selections',
       description: 'Financial Controller for the brand',
       id: 57,
       selected: 'unassigned',
-      responses: ceo
+      responses: ceo2
     }]
 }]
 // B
-export const catBrandManResp = [{
+// C
+export const proManResp2 = [{
   label: '',
   options: [
     {
-      title: 'MERCHANDISE MANAGER',
-      description: 'Manage the image and product from the entire brand',
-      id: 56,
-      selected: 'selected',
-      responses: false
-    }]
-}]
-// C
-export const proManResp = [{
-  label: 'work in field - gain 5 yrs experience',
-  options: [
-    {
-      title: 'IT/ DESIGN MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage the Technology used across the brand',
       id: 55,
       selected: 'selected',
@@ -214,24 +184,24 @@ export const proManResp = [{
     }]
 }]
 // D
-export const hrManResp = [{
+export const hrManResp2 = [{
   label: '',
   options: [
     {
-      title: 'GM HUMAN RESOURCES',
+      title: 'Option 2 Selections',
       description: 'General Manager of Human Resources',
       id: 54,
       selected: 'unassigned',
-      responses: ceo
+      responses: ceo2
     }]
 }]
 // E
 // F
-export const paResp = [{
+export const paResp2 = [{
   label: '',
   options: [
     {
-      title: 'OFFICE MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage an Entire Office',
       id: 53,
       selected: 'selected',
@@ -239,110 +209,87 @@ export const paResp = [{
     }]
 }]
 // G
-export const assistManResp = [{
+export const assistManResp2 = [{
   label: '',
   options: [
     {
-      title: "BUYER'S ASSISTANT",
+      title: 'Option 2 Selections',
       description: 'Assist buyer and learn from them',
       id: 52,
       selected: 'unassigned',
       responses: buyAssistResp2
     },
     {
-      title: 'INSTORE VM',
+      title: 'Option 2 Selections',
       description: 'Instore Visual Merchandiser',
       id: 51,
       selected: 'unassigned',
-      responses: instoreVmResp
+      responses: instoreVmResp2
     },
     {
-      title: 'STORE MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage an entire store',
       id: 50,
       selected: 'unassigned',
-      responses: storeManResp
+      responses: storeManResp2
     }]
 }]
 
-// Third Level
+// Fifth Level
 
 // A H
-export const assistAccResp = [{
+export const assistAccResp2 = [{
   label: '',
   options: [
     {
-      title: 'ACCOUNTS MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage the business accounts',
       id: 49,
       selected: 'unassigned',
-      responses: accManResp
+      responses: accManResp2
     }]
 }]
-// B
-export const plannerResp = [{
+export const commResp2 = [{
   label: '',
   options: [
     {
-      title: 'CATEGORY/ BRAND MANAGER',
-      description: 'Manage the image and stock of the brand/category',
-      id: 48,
-      selected: 'unassigned',
-      responses: catBrandManResp
-    }]
-}]
-export const buyerResp = [{
-  label: '',
-  options: [
-    {
-      title: 'CATEGORY/ BRAND MANAGER',
-      description: 'Manage the image and stock of the brand/category',
-      id: 47,
-      selected: 'unassigned',
-      responses: catBrandManResp
-    }]
-}]
-export const commResp = [{
-  label: '',
-  options: [
-    {
-      title: 'MARKETING MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage the Marketing of the entire Brand',
       id: 46,
       selected: 'unassigned',
-      responses: ceo
+      responses: ceo2
     }]
 }]
 // C
-export const techSuppResp = [{
+export const techSuppResp2 = [{
   label: 'work in field - gain 5 yrs experience',
   options: [
     {
-      title: 'PROJECT MANAGEMENT',
+      title: 'Option 2 Selections',
       description: 'Run the operations of the brand',
       id: 45,
       selected: 'unassigned',
-      responses: proManResp
+      responses: proManResp2
     }]
 }]
 // D
-export const trainDevResp = [{
+export const trainDevResp2 = [{
   label: '',
   options: [
     {
-      title: 'HR MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage HR across the company',
       id: 44,
       selected: 'unassigned',
-      responses: hrManResp
+      responses: hrManResp2
     }]
 }]
 // E
-export const logisticResp = [{
+export const logisticResp2 = [{
   label: '',
   options: [
     {
-      title: 'WAREHOUSE MANAGER',
+      title: 'Option 2 Selections',
       description: 'Manage stock for the entire brand',
       id: 43,
       selected: 'selected',
@@ -350,398 +297,380 @@ export const logisticResp = [{
     }]
 }]
 // F
-export const custServiceResp = [{
+export const custServiceResp2 = [{
   label: '',
   options: [
     {
-      title: 'PERSONAL ASSISTANT',
+      title: 'Option 2 Selections',
       description: 'Manage the day to day life of a high level Employee',
       id: 42,
       selected: 'unassigned',
-      responses: paResp
+      responses: paResp2
     }]
 }]
 // G
-export const traineeManResp = [{
+export const traineeManResp2 = [{
   label: '',
   options: [
     {
-      title: 'ASSISTANT MANAGER',
+      title: 'Option 2 Selections',
       description: 'Assist the store manager in the running of the business',
       id: 41,
       selected: 'unassigned',
-      responses: assistManResp
+      responses: assistManResp2
+    }]
+}]
+
+// Forth Level
+
+// A H
+export const credControlResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Help a team manage the Accounts',
+      id: 40,
+      selected: 'unassigned',
+      responses: assistAccResp2
+    }]
+}]
+export const accRecievResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Help a team manage the Accounts',
+      id: 39,
+      selected: 'unassigned',
+      responses: assistAccResp2
+    }]
+}]
+export const accPayableResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Help a team manage the Accounts',
+      id: 38,
+      selected: 'unassigned',
+      responses: assistAccResp2
+    }]
+}]
+// B
+export const promoResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Manage the Marketing of the entire Brand',
+      id: 35,
+      selected: 'unassigned',
+      responses: ceo2
+    }]
+}]
+export const advertResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Communicate with brand partners',
+      id: 34,
+      selected: 'unassigned',
+      responses: commResp2
+    }]
+}]
+export const marketAssistResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Manage the Marketing of the entire Brand',
+      id: 33,
+      selected: 'unassigned',
+      responses: ceo2
+    }]
+}]
+// C
+export const posAdminResp2 = [{
+  label: 'work in field - gain 5 yrs experience',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Manage the Tech used in retail stores',
+      id: 32,
+      selected: 'unassigned',
+      responses: techSuppResp2
+    }]
+}]
+export const webAppResp2 = [{
+  label: 'work in field - gain 5 yrs experience',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'I lead web app and online tool projects for the company to use',
+      id: 31,
+      selected: 'unassigned',
+      responses: ceo2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'I create digital marketing campaigns and manage influencers',
+      id: 30,
+      selected: 'unassigned',
+      responses: ceo2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'I use analytics and data to design systems to sell more for the company',
+      id: 29,
+      selected: 'unassigned',
+      responses: ceo2
+    }]
+}]
+// D
+export const hrAssistResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Train and Develop Staff',
+      id: 28,
+      selected: 'unassigned',
+      responses: trainDevResp2
+    }]
+}]
+// E
+export const wareSuperResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Manage Logistics and Stock',
+      id: 27,
+      selected: 'unassigned',
+      responses: logisticResp2
+    }]
+}]
+// F
+export const adminResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Customer service representative',
+      id: 26,
+      selected: 'unassigned',
+      responses: custServiceResp2
+    }]
+}]
+// G
+export const trainManagerResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 25,
+      selected: 'unassigned',
+      responses: traineeManResp2
+    }]
+}]
+
+// Third Level
+
+// A
+export const accDegResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 24,
+      selected: 'unassigned',
+      responses: credControlResp2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 23,
+      selected: 'unassigned',
+      responses: accRecievResp2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 22,
+      selected: 'unassigned',
+      responses: accPayableResp2
+    }]
+}]
+// B
+export const busDegResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Assist buyer and learn from them',
+      id: 21,
+      selected: 'unassigned',
+      responses: buyAssistResp2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'Promote brands and their values to the consumer',
+      id: 20,
+      selected: 'unassigned',
+      responses: promoResp2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'Help the Advertising Team and generate sales',
+      id: 19,
+      selected: 'unassigned',
+      responses: advertResp2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'Help the Marketing Team',
+      id: 18,
+      selected: 'unassigned',
+      responses: marketAssistResp2
+    }]
+}]
+
+// C
+export const itDegResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Manage in-store and online point of sale system',
+      id: 17,
+      selected: 'unassigned',
+      responses: posAdminResp2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 16,
+      selected: 'unassigned',
+      responses: webAppResp2
+    }]
+}]
+// D
+export const hrDegResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Assistant in HR',
+      id: 15,
+      selected: 'unassigned',
+      responses: hrAssistResp2
+    }]
+}]
+// E
+export const warehousingResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 14,
+      selected: 'unassigned',
+      responses: wareSuperResp2
+    }
+  ]
+}]
+// F
+export const receptionResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Office administration and Support',
+      id: 13,
+      selected: 'unassigned',
+      responses: adminResp2
+    }]
+}]
+// G
+export const shopFloorResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 12,
+      selected: 'unassigned',
+      responses: trainManagerResp2
+    }]
+}]
+// H
+export const dataEntryResp2 = [{
+  label: '',
+  options: [
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 11,
+      selected: 'unassigned',
+      responses: credControlResp2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 10,
+      selected: 'unassigned',
+      responses: accRecievResp2
+    },
+    {
+      title: 'Option 2 Selections',
+      description: 'Creating and managing online stores and marketing',
+      id: 9,
+      selected: 'unassigned',
+      responses: accPayableResp2
     }]
 }]
 
 // Second Level
 
-// A H
-export const credControlResp = [{
-  label: '',
-  options: [
-    {
-      title: 'ASSISTANT ACCOUNTANT',
-      description: 'Help a team manage the Accounts',
-      id: 40,
-      selected: 'unassigned',
-      responses: assistAccResp
-    }]
-}]
-export const accRecievResp = [{
-  label: '',
-  options: [
-    {
-      title: 'ASSISTANT ACCOUNTANT',
-      description: 'Help a team manage the Accounts',
-      id: 39,
-      selected: 'unassigned',
-      responses: assistAccResp
-    }]
-}]
-export const accPayableResp = [{
-  label: '',
-  options: [
-    {
-      title: 'ASSISTANT ACCOUNTANT',
-      description: 'Help a team manage the Accounts',
-      id: 38,
-      selected: 'unassigned',
-      responses: assistAccResp
-    }]
-}]
-// B
-export const buyAssistResp = [{
-  label: '',
-  options: [
-    {
-      title: 'PLANNER',
-      description: 'Plan the seasons trends for the buyer',
-      id: 37,
-      selected: 'unassigned',
-      responses: plannerResp
-    },
-    {
-      title: 'BUYER',
-      description: 'Source the product for the Brand',
-      id: 36,
-      selected: 'unassigned',
-      responses: buyerResp
-    }]
-}]
-export const promoResp = [{
-  label: '',
-  options: [
-    {
-      title: 'MARKETING MANAGER',
-      description: 'Manage the Marketing of the entire Brand',
-      id: 35,
-      selected: 'unassigned',
-      responses: ceo
-    }]
-}]
-export const advertResp = [{
-  label: '',
-  options: [
-    {
-      title: 'COMMUNICATIONS',
-      description: 'Communicate with brand partners',
-      id: 34,
-      selected: 'unassigned',
-      responses: commResp
-    }]
-}]
-export const marketAssistResp = [{
-  label: '',
-  options: [
-    {
-      title: 'Marketing Manager',
-      description: 'Manage the Marketing of the entire Brand',
-      id: 33,
-      selected: 'unassigned',
-      responses: ceo
-    }]
-}]
-// C
-export const posAdminResp = [{
-  label: 'work in field - gain 5 yrs experience',
-  options: [
-    {
-      title: 'TECHNICAL SUPPORT',
-      description: 'Manage the Tech used in retail stores',
-      id: 32,
-      selected: 'unassigned',
-      responses: techSuppResp
-    }]
-}]
-export const webAppResp = [{
-  label: 'work in field - gain 5 yrs experience',
-  options: [
-    {
-      title: 'SENIOR DEVELOPER',
-      description: 'I lead web app and online tool projects for the company to use',
-      id: 31,
-      selected: 'unassigned',
-      responses: ceo
-    },
-    {
-      title: 'DIGITAL MARKETING LEAD',
-      description: 'I create digital marketing campaigns and manage influencers',
-      id: 30,
-      selected: 'unassigned',
-      responses: ceo
-    },
-    {
-      title: 'STRATEGY DESIGNER',
-      description: 'I use analytics and data to design systems to sell more for the company',
-      id: 29,
-      selected: 'unassigned',
-      responses: ceo
-    }]
-}]
-// D
-export const hrAssistResp = [{
-  label: '',
-  options: [
-    {
-      title: 'TRAINING AND DEVELOPMENT',
-      description: 'Train and Develop Staff',
-      id: 28,
-      selected: 'unassigned',
-      responses: trainDevResp
-    }]
-}]
-// E
-export const wareSuperResp = [{
-  label: '',
-  options: [
-    {
-      title: 'LOGISTICS/INVENTORY CONTROL',
-      description: 'Manage Logistics and Stock',
-      id: 27,
-      selected: 'unassigned',
-      responses: logisticResp
-    }]
-}]
-// F
-export const adminResp = [{
-  label: '',
-  options: [
-    {
-      title: 'CUSTOMER SERVICE',
-      description: 'Customer service representative',
-      id: 26,
-      selected: 'unassigned',
-      responses: custServiceResp
-    }]
-}]
-// G
-export const trainManagerResp = [{
-  label: '',
-  options: [
-    {
-      title: 'TRAINEE MANAGER',
-      description: 'Creating and managing online stores and marketing',
-      id: 25,
-      selected: 'unassigned',
-      responses: traineeManResp
-    }]
-}]
-
-// First Level
-
-// A
-export const accDegResp = [{
-  label: '',
-  options: [
-    {
-      title: 'CREDIT CONTROL',
-      description: 'Creating and managing online stores and marketing',
-      id: 24,
-      selected: 'unassigned',
-      responses: credControlResp
-    },
-    {
-      title: 'ACCOUNTS RECEIVABLE',
-      description: 'Creating and managing online stores and marketing',
-      id: 23,
-      selected: 'unassigned',
-      responses: accRecievResp
-    },
-    {
-      title: 'ACCOUNTS PAYABLE',
-      description: 'Creating and managing online stores and marketing',
-      id: 22,
-      selected: 'unassigned',
-      responses: accPayableResp
-    }]
-}]
-// B
-export const busDegResp = [{
-  label: '',
-  options: [
-    {
-      title: "BUYER'S ASSISTANT",
-      description: 'Assist buyer and learn from them',
-      id: 21,
-      selected: 'unassigned',
-      responses: buyAssistResp
-    },
-    {
-      title: 'PROMOTIONS',
-      description: 'Promote brands and their values to the consumer',
-      id: 20,
-      selected: 'unassigned',
-      responses: promoResp
-    },
-    {
-      title: 'ADVERTISING',
-      description: 'Help the Advertising Team and generate sales',
-      id: 19,
-      selected: 'unassigned',
-      responses: advertResp
-    },
-    {
-      title: 'MARKETING ASSISTANT',
-      description: 'Help the Marketing Team',
-      id: 18,
-      selected: 'unassigned',
-      responses: marketAssistResp
-    }]
-}]
-
-// C
-export const itDegResp = [{
-  label: '',
-  options: [
-    {
-      title: 'POS ADMINISTRATOR',
-      description: 'Manage in-store and online point of sale system',
-      id: 17,
-      selected: 'unassigned',
-      responses: posAdminResp
-    },
-    {
-      title: 'WEB APPLICATIONS',
-      description: 'Creating and managing online stores and marketing',
-      id: 16,
-      selected: 'unassigned',
-      responses: webAppResp
-    }]
-}]
-// D
-export const hrDegResp = [{
-  label: '',
-  options: [
-    {
-      title: 'HR ASSISTANT',
-      description: 'Assistant in HR',
-      id: 15,
-      selected: 'unassigned',
-      responses: hrAssistResp
-    }]
-}]
-// E
-export const warehousingResp = [{
-  label: '',
-  options: [
-    {
-      title: 'WAREHOUSE SUPERVISOR',
-      description: 'Creating and managing online stores and marketing',
-      id: 14,
-      selected: 'unassigned',
-      responses: wareSuperResp
-    }
-  ]
-}]
-// F
-export const receptionResp = [{
-  label: '',
-  options: [
-    {
-      title: 'SUPPORT/ OFFICE ADMIN',
-      description: 'Office administration and Support',
-      id: 13,
-      selected: 'unassigned',
-      responses: adminResp
-    }]
-}]
-// G
-export const shopFloorResp = [{
-  label: '',
-  options: [
-    {
-      title: 'TRAINEE MANAGER',
-      description: 'Creating and managing online stores and marketing',
-      id: 12,
-      selected: 'unassigned',
-      responses: trainManagerResp
-    }]
-}]
-// H
-export const dataEntryResp = [{
-  label: '',
-  options: [
-    {
-      title: 'CREDIT CONTROL',
-      description: 'Creating and managing online stores and marketing',
-      id: 11,
-      selected: 'unassigned',
-      responses: credControlResp
-    },
-    {
-      title: 'ACCOUNTS RECEIVABLE',
-      description: 'Creating and managing online stores and marketing',
-      id: 10,
-      selected: 'unassigned',
-      responses: accRecievResp
-    },
-    {
-      title: 'ACCOUNTS PAYABLE',
-      description: 'Creating and managing online stores and marketing',
-      id: 9,
-      selected: 'unassigned',
-      responses: accPayableResp
-    }]
-}]
-
-// baseLevel
-
-export const baseLevel = [
+export const baseLevel2 = [
   {
     label: 'HIGHER EDUCATION',
     options: [
       // A
       {
-        title: 'ACCOUNTING DEGREE',
+        title: 'Option 2 Selections',
         description: 'I like working with numbers and problem solving',
         id: 8,
         selected: 'unassigned',
-        responses: accDegResp
+        responses: accDegResp2
       },
       // B
       {
-        title: 'BUSINESS DEGREE',
+        title: 'Option 2 Selections',
         description: 'I like challenges and growing a project being efficient being efficient',
         id: 7,
         selected: 'unassigned',
-        responses: busDegResp
+        responses: busDegResp2
       },
       // C
       {
-        title: 'IT DEGREE',
+        title: 'Option 2 Selections',
         description: 'I like working with computers and the internet',
         id: 6,
         selected: 'unassigned',
-        responses: itDegResp
+        responses: itDegResp2
       },
       // D
       {
-        title: 'HUMAN RESOURCES DEGREE',
+        title: 'Option 2 Selections',
         description: 'I like working with people and managing projects',
         id: 5,
         selected: 'unassigned',
-        responses: hrDegResp
+        responses: hrDegResp2
       }
     ]
   },
@@ -750,49 +679,36 @@ export const baseLevel = [
     options: [
       // E
       {
-        title: 'WAREHOUSING',
+        title: 'Option 2 Selections',
         description: 'I like making efficient systems and like fitness',
         id: 4,
         selected: 'unassigned',
-        responses: warehousingResp
+        responses: warehousingResp2
       },
       // F
       {
-        title: 'RECEPTION',
+        title: 'Option 2 Selections',
         description: 'I like helping people and being efficient being efficient being efficient',
         id: 3,
         selected: 'unassigned',
-        responses: receptionResp
+        responses: receptionResp2
       },
       // G
       {
-        title: 'SHOP FLOOR',
+        title: 'Option 2 Selections',
         description: 'I like being in a retail environment and making sales',
         id: 2,
         selected: 'unassigned',
-        responses: shopFloorResp
+        responses: shopFloorResp2
       },
       // H
       {
-        title: 'DATA ENTRY',
+        title: 'Option 2 Selections',
         description: 'I like working with numbers and being given tasks',
         id: 1,
         selected: 'unassigned',
-        responses: dataEntryResp
+        responses: dataEntryResp2
       }
     ]
   }
 ]
-
-export const startPoint = [{
-  label: '',
-  options: [
-    {
-      title: 'RETAIL ASSISTANT',
-      description: 'YOUR FRIENDLY STORE ASSISTANT',
-      id: 100,
-      selected: 'selected',
-      responses: null
-    }
-  ]
-}]

@@ -1,5 +1,5 @@
 import {setFinal} from './final'
-// import {setLevelOne} from './level-one'
+import {setLevelOne} from './level-one'
 import {setLevelTwo} from './level-two'
 import {setLevelThree} from './level-three'
 import {setLevelFour} from './level-four'
@@ -46,6 +46,10 @@ export function setLevels (final, first, selection, incoming, prev) {
   return dispatch => {
     if (final) {
       dispatch(setFinal(final))
+    }
+    if (first === 1) {
+      dispatch(setLevelOne(selection))
+      dispatch(setLevelTwo(incoming))
     }
     if (first === 2) {
       dispatch(setLevelTwo(selection))

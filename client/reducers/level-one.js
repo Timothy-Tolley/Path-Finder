@@ -1,5 +1,5 @@
 import {LEVEL_ONE_NEW, LEVEL_ONE_RESET} from '../actions/level-one'
-import {startPoint} from '../data/path-data'
+import {startPoint} from '../data/path-start-point'
 
 const initialState = startPoint
 

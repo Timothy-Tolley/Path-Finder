@@ -1,9 +1,8 @@
-import {LEVEL_TWO_NEW, LEVEL_TWO_RESET} from '../actions/level-two'
-import {baseLevel} from '../data/path-data'
+import {LEVEL_TWO_NEW, LEVEL_TWO_RESET, LEVEL_TWO_RESET_ACTIVE} from '../actions/level-two'
 
-const initialState = baseLevel
+const initialState = false
 
-const levelTwo = (state = initialState, action) => {
+export const levelTwo = (state = initialState, action) => {
   switch (action.type) {
     case (LEVEL_TWO_NEW): {
       return action.level
@@ -11,9 +10,23 @@ const levelTwo = (state = initialState, action) => {
     case (LEVEL_TWO_RESET): {
       return initialState
     }
+    case (LEVEL_TWO_RESET_ACTIVE): {
+      return false
+    }
     default:
       return state
   }
 }
 
-export default levelTwo
+export const levelTwoActive = (state = initialState, action) => {
+  switch (action.type) {
+    case (LEVEL_TWO_NEW): {
+      return true
+    }
+    case (LEVEL_TWO_RESET_ACTIVE): {
+      return false
+    }
+    default:
+      return state
+  }
+}

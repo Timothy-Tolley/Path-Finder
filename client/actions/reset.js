@@ -1,6 +1,6 @@
 import {resetFinal} from './final'
 import {resetLevelOne} from './level-one'
-import {resetLevelTwo} from './level-two'
+import {resetLevelTwoActive, resetLevelTwo} from './level-two'
 import {resetLevelThreeActive, resetLevelThree} from './level-three'
 import {resetLevelFourActive, resetLevelFour} from './level-four'
 import {resetLevelFiveActive, resetLevelFive} from './level-five'
@@ -16,21 +16,24 @@ export function resetLevels () {
     dispatch(activeOff())
     dispatch(resetFinal())
     setTimeout(() => {
+      dispatch(resetLevelTwoActive())
+      dispatch(resetLevelThreeActive())
+      dispatch(resetLevelFourActive())
+      dispatch(resetLevelFiveActive())
+      dispatch(resetLevelSixActive())
+      dispatch(resetLevelSevenActive())
+      dispatch(resetLevelEightActive())
+    }, 2500)
+    setTimeout(() => {
       dispatch(resetSelections())
       dispatch(resetLevelOne())
       dispatch(resetLevelTwo())
       dispatch(resetLevelThree())
-      dispatch(resetLevelThreeActive())
       dispatch(resetLevelFour())
-      dispatch(resetLevelFourActive())
       dispatch(resetLevelFive())
-      dispatch(resetLevelFiveActive())
       dispatch(resetLevelSix())
-      dispatch(resetLevelSixActive())
       dispatch(resetLevelSeven())
-      dispatch(resetLevelSevenActive())
       dispatch(resetLevelEight())
-      dispatch(resetLevelEightActive())
       dispatch(resetPreviousLevel())
       dispatch(activeOn())
     }, 3000)

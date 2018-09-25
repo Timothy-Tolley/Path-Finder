@@ -90,6 +90,26 @@ body {
   width: 60%;
 }
 
+/* TITLE AND DESCRIPTION */
+
+.title {
+  font-size: 1rem;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.description {
+ font-size: 0.7rem;
+ font-weight: 300;
+ pointer-events: none;
+}
+
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  display:none
+}
 
 /* ANIMATION */
 
@@ -108,9 +128,55 @@ body {
 }
 .move-fade-exit-active {
   opacity: 0.01;
-  transition: all 200ms ease-in;
+  transition: all 1000ms ease-in;
 }
 
-::-webkit-scrollbar {
-  display:none
+.fade-enter {
+  opacity: 0.01;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: all 1000ms ease-out;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0.01;
+  transition: all 1000ms ease-in;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 0.6rem;
+  }
+  .description {
+   font-size: 0.45rem;
+  }
+  .main-header{
+    font-size: 1.5rem;
+  }
+  .secondary-header{
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .title {
+    font-size: 0.5rem;
+  }
+  
+  .description {
+   font-size: 0.4rem;
+  }
+  .main-header{
+    font-size: 1rem;
+  }
+  .secondary-header{
+    font-size: 0.8rem;
+  }
 }

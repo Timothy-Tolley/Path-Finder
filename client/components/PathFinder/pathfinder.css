@@ -2,15 +2,29 @@
 
 .pathfinder-app {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.load-animation {
+  max-height: 50%;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+}
+
+.page-container {
+  width: 100%;
   height: 75%;
   position: fixed;
   left: 0;
   bottom: 10%;
   display: flex;
   flex-direction: row;
-  padding: 6px;
-  overflow: auto;
-  scroll-behavior: smooth;
 }
 
 /* CONTAINERS */
@@ -52,31 +66,15 @@
 .selected {
   background-color: #e57f35;
   color: white;
-  border-radius: 5px;
 }
 
 .notSelected {
   background-color: transparent;
-  border-radius: 5px;
 }
 
 .unassigned {
   background-color: #e57f35;
   color: white;
-  border-radius: 5px;
-}
-/* TITLE AND DESCRIPTION */
-
-.title {
-  font-size: 1rem;
-  font-weight: 500;
-  pointer-events: none;
-}
-
-.description {
- font-size: 0.7rem;
- font-weight: 300;
- pointer-events: none;
 }
 
 /* DEFINE TRANSITIONS */
@@ -149,5 +147,16 @@
   }
   100% {
     transform: translate3d(-25%,0%,0);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .label-cont {
+    width: 90%;
+    padding: 5px;
+  }
+  .load-animation{
+    max-width: 70%;
   }
 }

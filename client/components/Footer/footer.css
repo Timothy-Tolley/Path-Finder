@@ -33,7 +33,10 @@
 }
 
 @media (max-width: 650px) {
-  .footer-bar{
-    display: none;
+  .footer-text{
+    display:none;
+  }
+  .footer-icons {
+    width: 100%;
   }
 } 

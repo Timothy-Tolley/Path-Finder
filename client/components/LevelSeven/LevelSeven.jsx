@@ -14,7 +14,9 @@ import {setLevelEight} from '../../actions/level-eight'
 class LevelSeven extends React.Component {
   levelProceed (incomingLevel, selectedLevel, prev, option) {
     let finalCheck = false
-    if (incomingLevel[0].options[0].responses === false) {
+    if (!incomingLevel) {
+      return true
+    } else if (incomingLevel[0].options[0].responses === false) {
       finalCheck = true
       this.props.dispatch(addSelection([
         this.props.selections[0],
@@ -58,12 +60,16 @@ class LevelSeven extends React.Component {
 
   handleClick (e, option) {
     let targetId = e.target.id
-    let currentLevelData = this.props.levelFive
+    let currentLevelData = this.props.levelSeven
     let selectedLevel = this.props.markSelected(targetId, currentLevelData)
     let reachedLevel = this.props.findActiveLevel()
     let levelDifference = reachedLevel - 4
     let incomingLevel = option.responses
     let finalClick = this.props.checkIfFinalClick(incomingLevel)
+    let zoomDiv = document.getElementById('pathfinder-app')
+    zoomDiv.style.overflow = 'scroll'
+    zoomDiv.style.transformOrigin = 'left'
+    zoomDiv.style.transform = 'scaleX(1) scaleY(1)'
     let prev = {
       levelOne: this.props.levelOne,
       levelTwo: this.props.levelTwo,
@@ -84,8 +90,14 @@ class LevelSeven extends React.Component {
         this.props.selections[5]
       ]
     }
-    if (option.selected !== 'unassigned' && finalClick) {
+    if (option.selected === 'selected' && finalClick) {
+      return true
+    } else if (option.selected === 'notSelected' && finalClick) {
       this.resetSelections(option.title)
+      this.props.dispatch(setPreviousLevel(prev))
+      this.props.dispatch(setLevelSeven(selectedLevel))
+      this.props.dispatch(setLevelEight(option.responses))
+    } else if (option.selected !== 'unassigned' && !finalClick) {
       this.props.dispatch(resetFinal())
       this.props.dispatch(setPreviousLevel(prev))
       this.props.dispatch(setLevelSeven(selectedLevel))
@@ -94,16 +106,8 @@ class LevelSeven extends React.Component {
         setTimeout(() => this.props.shiftRight(levelDifference), 100)
       }
     } else {
-      this.props.dispatch(addSelection([
-        this.props.selections[0],
-        this.props.selections[1],
-        this.props.selections[2],
-        this.props.selections[3],
-        this.props.selections[4],
-        this.props.selections[5],
-        option.title
-      ]))
-      this.levelProceed(option.responses, selectedLevel, prev)
+      this.props.dispatch(resetFinal())
+      this.levelProceed(option.responses, selectedLevel, prev, option)
     }
   }
   render () {
@@ -126,7 +130,7 @@ class LevelSeven extends React.Component {
                 <div className = 'options-cont'>
                   {section.options.map((option) => {
                     return (
-                      <div className = {`box ${option.selected}`} id = {option.id} value = {option} onClick = {(e) => this.this.handleClick(e, option)} key={option.id}>
+                      <div className = {`box ${option.selected}`} id = {option.id} value = {option} onClick = {(e) => this.handleClick(e, option)} key={option.id}>
                         <p className = 'title'>
                           {option.title}
                         </p>
@@ -158,7 +162,8 @@ function mapStateToProps (state) {
     levelFive: state.levelFive,
     levelSix: state.levelSix,
     levelSeven: state.levelSeven,
-    levelSevenActive: state.levelSevenActive
+    levelSevenActive: state.levelSevenActive,
+    final: state.final
   }
 }
 

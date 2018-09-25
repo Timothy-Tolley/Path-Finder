@@ -16,8 +16,17 @@ import LevelEight from '../LevelEight/LevelEight'
 import Final from '../Final/Final'
 
 class Pathfinder extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      load: true
+    }
+  }
   componentDidMount () {
-    this.props.dispatch(activeOn())
+    setTimeout(() => {
+      this.setState({load: false})
+      this.props.dispatch(activeOn())
+    }, 4000)
   }
 
   findActiveLevel () {
@@ -33,23 +42,23 @@ class Pathfinder extends React.Component {
       return 4
     } else if (this.props.levelThreeActive) {
       return 3
-    } else {
+    } else if (this.props.levelTwoActive) {
       return 2
-    }
+    } else return 1
   }
 
   checkIfFinalClick (incomingLevel) {
-    let secondaryLevel = true
-    for (let i = 0; i < incomingLevel[0].options.length; i++) {
-      if (incomingLevel[0].options[i].responses === false) {
-        secondaryLevel = false
-      }
-    }
-    if (incomingLevel === false) {
-      return false
-    } else if (secondaryLevel === false) {
-      return false
-    } else return true
+    if (incomingLevel !== false) {
+      let result = false
+      incomingLevel[0].options.forEach(option => {
+        if (option.responses === false) {
+          result = true
+        }
+      })
+      return result
+    } else if (incomingLevel === false) {
+      return true
+    } else return false
   }
 
   markSelected (id, level) {
@@ -59,7 +68,6 @@ class Pathfinder extends React.Component {
       for (let j = 0; j < newLevel[i].options.length; j++) {
         if (newLevel[i].options[j].id === Number(id)) {
           newLevel[i].options[j].selected = 'selected'
-          // this.recordSelection(newLevel[i].options[j].title)
         } else {
           newLevel[i].options[j].selected = 'notSelected'
         }
@@ -75,61 +83,80 @@ class Pathfinder extends React.Component {
 
   render () {
     return (
-      <CSSTransition
-        classNames = 'move-fade'
-        in = {this.props.active}
-        timeout = {4000}
-        component = {null}
-        mountOnEnter
-        unmountOnExit
-      >
-        <div className = 'pathfinder-app' id = 'pathfinder-app'>
-          <LevelOne />
-          <LevelTwo
-            markSelected = {this.markSelected.bind(this)}
-            findActiveLevel = {this.findActiveLevel.bind(this)}
-            shiftRight = {this.props.shiftRight.bind(this)}
-            checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
-          />
-          <LevelThree
-            markSelected = {this.markSelected.bind(this)}
-            findActiveLevel = {this.findActiveLevel.bind(this)}
-            shiftRight = {this.props.shiftRight.bind(this)}
-            shiftLeft = {this.shiftLeft.bind(this)}
-            checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
-          />
-          <LevelFour
-            markSelected = {this.markSelected.bind(this)}
-            findActiveLevel = {this.findActiveLevel.bind(this)}
-            shiftRight = {this.props.shiftRight.bind(this)}
-            shiftLeft = {this.shiftLeft.bind(this)}
-            checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
-          />
-          <LevelFive
-            markSelected = {this.markSelected.bind(this)}
-            findActiveLevel = {this.findActiveLevel.bind(this)}
-            shiftRight = {this.props.shiftRight.bind(this)}
-            shiftLeft = {this.shiftLeft.bind(this)}
-            checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
-          />
-          <LevelSix
-            markSelected = {this.markSelected.bind(this)}
-            findActiveLevel = {this.findActiveLevel.bind(this)}
-            shiftRight = {this.props.shiftRight.bind(this)}
-            shiftLeft = {this.shiftLeft.bind(this)}
-            checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
-          />
-          <LevelSeven
-            markSelected = {this.markSelected.bind(this)}
-            findActiveLevel = {this.findActiveLevel.bind(this)}
-            shiftRight = {this.props.shiftRight.bind(this)}
-            shiftLeft = {this.shiftLeft.bind(this)}
-            checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
-          />
-          <LevelEight />
-          <Final />
-        </div>
-      </CSSTransition >
+      <div className = 'page-container'>
+        {this.state.load && <CSSTransition
+          classNames = 'fade'
+          in = {this.state.load}
+          timeout = {1000}
+          component = {null}
+          mountOnEnter
+          unmountOnExit
+        >
+          <video src = '/images/load.mp4' className = 'load-animation' autoPlay alt = 'load animation'/>
+        </CSSTransition>}
+        <CSSTransition
+          classNames = 'move-fade'
+          in = {this.props.active}
+          timeout = {4000}
+          component = {null}
+          mountOnEnter
+          unmountOnExit
+        >
+          <div className = 'pathfinder-app' id = 'pathfinder-app'>
+            <LevelOne
+              markSelected = {this.markSelected.bind(this)}
+              findActiveLevel = {this.findActiveLevel.bind(this)}
+              shiftRight = {this.props.shiftRight.bind(this)}
+              shiftLeft = {this.shiftLeft.bind(this)}
+              checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
+            />
+            <LevelTwo
+              markSelected = {this.markSelected.bind(this)}
+              findActiveLevel = {this.findActiveLevel.bind(this)}
+              shiftRight = {this.props.shiftRight.bind(this)}
+              shiftLeft = {this.shiftLeft.bind(this)}
+              checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
+            />
+            <LevelThree
+              markSelected = {this.markSelected.bind(this)}
+              findActiveLevel = {this.findActiveLevel.bind(this)}
+              shiftRight = {this.props.shiftRight.bind(this)}
+              shiftLeft = {this.shiftLeft.bind(this)}
+              checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
+            />
+            <LevelFour
+              markSelected = {this.markSelected.bind(this)}
+              findActiveLevel = {this.findActiveLevel.bind(this)}
+              shiftRight = {this.props.shiftRight.bind(this)}
+              shiftLeft = {this.shiftLeft.bind(this)}
+              checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
+            />
+            <LevelFive
+              markSelected = {this.markSelected.bind(this)}
+              findActiveLevel = {this.findActiveLevel.bind(this)}
+              shiftRight = {this.props.shiftRight.bind(this)}
+              shiftLeft = {this.shiftLeft.bind(this)}
+              checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
+            />
+            <LevelSix
+              markSelected = {this.markSelected.bind(this)}
+              findActiveLevel = {this.findActiveLevel.bind(this)}
+              shiftRight = {this.props.shiftRight.bind(this)}
+              shiftLeft = {this.shiftLeft.bind(this)}
+              checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
+            />
+            <LevelSeven
+              markSelected = {this.markSelected.bind(this)}
+              findActiveLevel = {this.findActiveLevel.bind(this)}
+              shiftRight = {this.props.shiftRight.bind(this)}
+              shiftLeft = {this.shiftLeft.bind(this)}
+              checkIfFinalClick = {this.checkIfFinalClick.bind(this)}
+            />
+            <LevelEight />
+            <Final />
+          </div>
+        </CSSTransition >
+      </div>
     )
   }
 }
@@ -138,6 +165,7 @@ function mapStateToProps (state) {
   return {
     levelOne: state.levelOne,
     levelTwo: state.levelTwo,
+    levelTwoActive: state.levelTwoActive,
     levelThree: state.levelThree,
     levelThreeActive: state.levelThreeActive,
     levelFour: state.levelFour,

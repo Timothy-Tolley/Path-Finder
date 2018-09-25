@@ -1,5 +1,7 @@
 import React from 'react'
+import {saveAs} from 'file-saver'
 import {connect} from 'react-redux'
+import html2canvas from 'html2canvas'
 
 import './footer.css'
 import {resetLevels} from '../../actions/reset'
@@ -21,17 +23,48 @@ class Footer extends React.Component {
   }
 
   reset () {
-    if (this.props.previousLevel === false) {
-      return
-    }
     this.props.dispatch(resetLevels())
-    setTimeout(() =>
-      this.resetRight(), 2700)
+    let shotDiv = document.getElementById('pathfinder-app')
+    setTimeout(() => {
+      shotDiv.style.overflow = 'scroll'
+      shotDiv.style.transformOrigin = 'left'
+      shotDiv.style.transform = 'scaleX(1) scaleY(1)'
+      this.resetRight()
+    }, 2700)
   }
 
   resetRight () {
     const wordMap = document.getElementById('pathfinder-app')
     wordMap.scrollLeft -= window.innerWidth * 2
+  }
+
+  determineScale () {
+    if (this.props.levelEightActive) {
+      return 0.44
+    } else if (this.props.levelSevenActive) {
+      return 0.5
+    } else if (this.props.levelSixActive) {
+      return 0.56
+    } else if (this.props.levelFiveActive) {
+      return 0.6
+    } else if (this.props.levelFourActive) {
+      return 0.8
+    } else return 1
+  }
+
+  screenshot () {
+    let scale = this.determineScale()
+    let shotDiv = document.getElementById('pathfinder-app')
+    shotDiv.style.overflow = 'visible'
+    shotDiv.style.transformOrigin = 'left'
+    shotDiv.style.transform = `scaleX(${scale}) scaleY(${scale})`
+    setTimeout(() => {
+      html2canvas(shotDiv).then(function (canvas) {
+        canvas.toBlob((blob) => {
+          saveAs(blob, 'career-path.png')
+        })
+      })
+    }, 1000)
   }
 
   render () {
@@ -56,9 +89,14 @@ class Footer extends React.Component {
           </div> */}
           <div className = 'reset-button footer-item'>
             <button className = 'footer-button' onClick = {() => this.reset()}>
-                RESET
+              RESET
             </button>
           </div>
+          {this.props.final && <div className = 'screenshot-button'>
+            <button className = 'footer-button' onClick = {() => this.screenshot()}>
+              SAVE
+            </button>
+          </div>}
         </div>
       </div>
     )
@@ -68,7 +106,12 @@ class Footer extends React.Component {
 function mapStateToProps (state) {
   return {
     previousLevel: state.previousLevel,
-    final: state.final
+    final: state.final,
+    levelFourActive: state.levelFourActive,
+    levelFiveActive: state.levelFiveActive,
+    levelSixActive: state.levelSixActive,
+    levelSevenActive: state.levelSevenActive,
+    levelEightActive: state.levelEightActive
   }
 }
 

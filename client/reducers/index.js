@@ -3,7 +3,7 @@ import {combineReducers} from 'redux'
 import final from './final'
 import active from './active'
 import levelOne from './level-one'
-import levelTwo from './level-two'
+import {levelTwo, levelTwoActive} from './level-two'
 import {levelThree, levelThreeActive} from './level-three'
 import {levelFour, levelFourActive} from './level-four'
 import {levelFive, levelFiveActive} from './level-five'
@@ -16,6 +16,7 @@ import selections from './selections'
 export default combineReducers({
   levelOne,
   levelTwo,
+  levelTwoActive,
   levelThree,
   levelThreeActive,
   levelFour,

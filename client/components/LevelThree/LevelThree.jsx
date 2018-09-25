@@ -19,7 +19,9 @@ import {resetLevelEightActive} from '../../actions/level-eight'
 class LevelThree extends React.Component {
   levelProceed (incomingLevel, selectedLevel, prev, option) {
     let finalCheck = false
-    if (incomingLevel[0].options[0].responses === false) {
+    if (!incomingLevel) {
+      return true
+    } else if (incomingLevel[0].options[0].responses === false) {
       finalCheck = true
       this.props.dispatch(addSelection([
         this.props.selections[0],
@@ -68,9 +70,31 @@ class LevelThree extends React.Component {
         this.props.selections[1]
       ]
     }
-    if (option.selected !== 'unassigned' && finalClick) {
-      this.resetSelections(option.title)
+    let zoomDiv = document.getElementById('pathfinder-app')
+    zoomDiv.style.overflow = 'scroll'
+    zoomDiv.style.transformOrigin = 'left'
+    zoomDiv.style.transform = 'scaleX(1) scaleY(1)'
+    if (option.selected === 'selected' && finalClick && this.props.final) {
+      return true
+    } else if (option.selected === 'notSelected' && finalClick && this.props.final) {
+      this.props.dispatch(addSelection([
+        this.props.selections[0],
+        this.props.selections[1],
+        this.props.selections[2],
+        this.props.selections[3],
+        option.title,
+        incomingLevel[0].options[0].title
+      ]))
+      this.props.dispatch(setPreviousLevel(prev))
+      this.props.dispatch(setLevelThree(selectedLevel))
+      this.props.dispatch(setLevelFour(option.responses))
+      this.props.dispatch(resetLevelFiveActive())
+      this.props.dispatch(resetLevelSixActive())
+      this.props.dispatch(resetLevelSevenActive())
+      this.props.dispatch(resetLevelEightActive())
+    } else if (option.selected !== 'unassigned' && !finalClick) {
       this.props.dispatch(resetFinal())
+      this.resetSelections(option.title)
       this.props.dispatch(setPreviousLevel(prev))
       this.props.dispatch(setLevelThree(selectedLevel))
       this.props.dispatch(setLevelFour(option.responses))
@@ -82,6 +106,7 @@ class LevelThree extends React.Component {
         setTimeout(() => this.props.shiftRight(levelDifference), 100)
       }
     } else {
+      this.props.dispatch(resetFinal())
       this.levelProceed(option.responses, selectedLevel, prev, option)
     }
   }
@@ -132,7 +157,8 @@ function mapStateToProps (state) {
     levelOne: state.levelOne,
     levelTwo: state.levelTwo,
     levelThree: state.levelThree,
-    levelThreeActive: state.levelThreeActive
+    levelThreeActive: state.levelThreeActive,
+    final: state.final
   }
 }
 
