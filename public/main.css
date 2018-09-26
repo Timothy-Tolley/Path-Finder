@@ -166,6 +166,9 @@ body {
 }
 
 @media (max-width: 450px) {
+  .label {
+    font-size: 0.5rem;
+  }
   .title {
     font-size: 0.35rem;
   }
@@ -177,16 +180,5 @@ body {
   }
   .secondary-header{
     font-size: 0.6rem;
-  }
-  .label {
-    font-size: 0.5rem;
-  }
-  .box{
-    padding-top: 1px;
-    padding-left: 1px;
-    padding-bottom: 1px;
-  }
-  .page-container{
-    height: 85%;
   }
 }
