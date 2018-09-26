@@ -26,7 +26,7 @@ class Pathfinder extends React.Component {
     setTimeout(() => {
       this.setState({load: false})
       this.props.dispatch(activeOn())
-    }, 4000)
+    }, 4500)
   }
 
   findActiveLevel () {
@@ -84,16 +84,7 @@ class Pathfinder extends React.Component {
   render () {
     return (
       <div className = 'page-container'>
-        {this.state.load && <CSSTransition
-          classNames = 'fade'
-          in = {this.state.load}
-          timeout = {1000}
-          component = {null}
-          mountOnEnter
-          unmountOnExit
-        >
-          <video src = '/images/load.mp4' className = 'load-animation' autoPlay playsInline preload = 'auto' alt = 'load animation' muted/>
-        </CSSTransition>}
+        {this.state.load && <video src = '/images/load.mp4' className = 'load-animation' autoPlay playsInline preload = 'auto' alt = 'load animation' muted/>}
         <CSSTransition
           classNames = 'move-fade'
           in = {this.props.active}
