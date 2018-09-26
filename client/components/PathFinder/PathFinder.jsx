@@ -92,7 +92,7 @@ class Pathfinder extends React.Component {
           mountOnEnter
           unmountOnExit
         >
-          <video src = '/images/load.mp4' className = 'load-animation' autoPlay alt = 'load animation'/>
+          <video src = '/images/load.mp4' className = 'load-animation' autoPlay alt = 'load animation' muted/>
         </CSSTransition>}
         <CSSTransition
           classNames = 'move-fade'

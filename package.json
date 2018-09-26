@@ -5,10 +5,11 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "build": "webpack --config ./client/webpack.config.js",
-    "dev": "nodemon --watch server/index.js & yarn build --watch",
+    "build-dev": "webpack --progress --config ./client/config/webpack.dev.js --mode development",
+    "build-prod": "webpack -p --progress --config ./client/config/webpack.prod.js --mode production",
+    "dev": "nodemon --watch server/index.js & yarn build-prod --watch",
     "test": "jest --watch --noStackTrace",
-    "postinstall": "webpack --config ./client/webpack.config.js"
+    "postinstall": "webpack -p --progress --config ./client/config/webpack.prod.js --mode production"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,7 @@
     ]
   },
   "engines": {
-    "node": "^8.0.0",
+    "node": "^10.10.0",
     "yarn": ">= 0.18.0"
   },
   "dependencies": {
@@ -55,13 +56,15 @@
     "sass-loader": "^6.0.6",
     "save": "^2.3.2",
     "style-loader": "^0.20.2",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "uuid": "^3.2.1",
-    "webpack": "^3.10.0"
+    "webpack": "^4.20.2",
+    "webpack-merge": "^4.1.4"
   },
   "devDependencies": {
     "nodemon": "^1.14.12",
-    "react-addons-test-utils": "^15.6.2",
-    "webpack-dev-server": "^2.11.1",
+    "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-cli": "^3.1.1",
     "webpack-livereload-plugin": "^1.0.0"
   }
 }
