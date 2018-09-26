@@ -160,18 +160,6 @@
 
 
 @media (max-width: 600px) {
-  .title {
-    font-size: 0.6rem;
-  }
-  .description {
-   font-size: 0.45rem;
-  }
-  .main-header{
-    font-size: 1.5rem;
-  }
-  .secondary-header{
-    font-size: 1.2rem;
-  }
   .label-cont {
     width: 90%;
     padding: 5px;
@@ -182,24 +170,10 @@
 }
 
 @media (max-width: 450px) {
-  .title {
-    font-size: 0.35rem;
-  }
-  .description {
-   font-size: 0.3rem;
-  }
-  .main-header{
-    font-size: 0.7rem;
-  }
-  .secondary-header{
-    font-size: 0.6rem;
-  }
-  .label {
-    font-size: 0.5rem;
-  }
   .box{
     padding-top: 1px;
-    padding-left: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
     padding-bottom: 1px;
   }
   .page-container{
