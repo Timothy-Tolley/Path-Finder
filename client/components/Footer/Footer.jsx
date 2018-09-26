@@ -40,13 +40,13 @@ class Footer extends React.Component {
 
   determineScale () {
     if (this.props.levelEightActive) {
-      return 0.44
+      return 0.45
     } else if (this.props.levelSevenActive) {
       return 0.5
     } else if (this.props.levelSixActive) {
-      return 0.56
+      return 0.57
     } else if (this.props.levelFiveActive) {
-      return 0.6
+      return 0.66
     } else if (this.props.levelFourActive) {
       return 0.8
     } else return 1
