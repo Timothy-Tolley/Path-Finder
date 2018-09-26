@@ -33,19 +33,11 @@
   }
 } 
 
-@media (max-width: 380px) {
+@media (max-width: 450px) {
   .header-bar{
-    height: auto;
+    height: 7%;
     width: 100%; 
     position: relative;
     padding: 1px;
-  }
-  .header-text{
-    flex-direction: column;
-    width: auto;
-    padding: 2px;
-  }
-  .header-item {
-    width: 100%; 
   }
 } 

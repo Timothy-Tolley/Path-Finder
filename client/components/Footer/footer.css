@@ -38,5 +38,14 @@
   }
   .footer-icons {
     width: 100%;
+    font-size: 0.7rem;
+  }
+} 
+
+
+@media (max-width: 450px) {
+  .footer-bar{
+    height: 8%;
+    width: 100%;
   }
 } 

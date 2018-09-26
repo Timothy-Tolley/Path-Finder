@@ -167,16 +167,16 @@ body {
 
 @media (max-width: 450px) {
   .title {
-    font-size: 0.4rem;
+    font-size: 0.35rem;
   }
   .description {
-   font-size: 0.35rem;
+   font-size: 0.3rem;
   }
   .main-header{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .secondary-header{
-    font-size: 0.9rem;
+    font-size: 0.6rem;
   }
   .label {
     font-size: 0.5rem;
@@ -185,5 +185,8 @@ body {
     padding-top: 1px;
     padding-left: 1px;
     padding-bottom: 1px;
+  }
+  .page-container{
+    height: 85%;
   }
 }
