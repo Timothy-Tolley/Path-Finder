@@ -7,7 +7,8 @@
     "start": "node server/index.js",
     "build-dev": "webpack --progress --config ./client/config/webpack.dev.js --mode development",
     "build-prod": "webpack -p --progress --config ./client/config/webpack.prod.js --mode production",
-    "dev": "nodemon --watch server/index.js & yarn build-prod --watch",
+    "dev": "nodemon --watch server/index.js & yarn build-dev --watch",
+    "prod": "nodemon --watch server/index.js & yarn build-prod --watch",
     "test": "jest --watch --noStackTrace",
     "postinstall": "webpack -p --progress --config ./client/config/webpack.prod.js --mode production"
   },
