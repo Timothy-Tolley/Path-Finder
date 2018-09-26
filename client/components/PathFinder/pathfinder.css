@@ -23,6 +23,7 @@
   background-color: transparent !important;
   display: block;
   border: none;
+  -webkit-appearance: none
 }
 
 .page-container {
