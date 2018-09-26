@@ -7,14 +7,14 @@ export const startPoint = [{
   options: [
     {
       title: 'RETAIL ASSISTANT',
-      description: 'YOUR FRIENDLY STORE ASSISTANT',
+      description: 'Your Friendly Store Assistant',
       id: 100,
       selected: 'selected',
       responses: baseLevel1
     },
     {
       title: 'STOCK ROOM ASSISTANT',
-      description: 'YOUR GO TO STOCK PERSON',
+      description: 'Your Go-To Stock Assistant',
       id: 101,
       selected: 'selected',
       responses: baseLevel2

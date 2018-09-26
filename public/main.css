@@ -169,7 +169,6 @@ body {
   .title {
     font-size: 0.4rem;
   }
-  
   .description {
    font-size: 0.35rem;
   }
@@ -181,5 +180,10 @@ body {
   }
   .label {
     font-size: 0.5rem;
+  }
+  .box{
+    padding-top: 1px;
+    padding-left: 1px;
+    padding-bottom: 1px;
   }
 }
