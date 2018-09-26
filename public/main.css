@@ -171,12 +171,15 @@ body {
   }
   
   .description {
-   font-size: 0.4rem;
+   font-size: 0.35rem;
   }
   .main-header{
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .secondary-header{
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+  }
+  .label {
+    font-size: 0.5rem;
   }
 }
