@@ -15,14 +15,6 @@
   margin-right: auto;
   margin-bottom: auto;
   margin-left: auto;
-  overflow: hidden;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background-color: transparent !important;
-  display: block;
-  border: none;
   -webkit-appearance: none
 }
 
